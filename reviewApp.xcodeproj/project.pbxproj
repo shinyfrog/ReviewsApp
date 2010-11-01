@@ -623,7 +623,7 @@
 		9FB6F581127EB89100B824DB /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB6F580127EB89100B824DB /* EGORefreshTableHeaderView.m */; };
 		9FB6F677127EC62900B824DB /* PullRefreshOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB6F676127EC62900B824DB /* PullRefreshOperation.m */; };
 		9FB6F6C9127ECE2100B824DB /* TraslationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB6F6C8127ECE2100B824DB /* TraslationManager.m */; };
-		9FB6F974127F294C00B824DB /* PullRefreshOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB6F973127F294C00B824DB /* PullRefreshOperation.m */; };
+		9FB6F9BD127F2FEE00B824DB /* PullToRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB6F9BC127F2FEE00B824DB /* PullToRefreshViewController.m */; };
 		9FEAB35B127AB7D300C863A0 /* UIImage+pngThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEAB35A127AB7D300C863A0 /* UIImage+pngThumb.m */; };
 		9FEAB3F0127AC8C500C863A0 /* halfStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEAB3EE127AC8C500C863A0 /* halfStar.png */; };
 		9FEAB3F1127AC8C500C863A0 /* halfStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEAB3EF127AC8C500C863A0 /* halfStar@2x.png */; };
@@ -1334,8 +1334,8 @@
 		9FB6F676127EC62900B824DB /* PullRefreshOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshOperation.m; sourceTree = "<group>"; };
 		9FB6F6C7127ECE2100B824DB /* TraslationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraslationManager.h; sourceTree = "<group>"; };
 		9FB6F6C8127ECE2100B824DB /* TraslationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraslationManager.m; sourceTree = "<group>"; };
-		9FB6F972127F294C00B824DB /* PullRefreshOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullRefreshOperation.h; path = Classes/PullRefreshOperation.h; sourceTree = "<group>"; };
-		9FB6F973127F294C00B824DB /* PullRefreshOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullRefreshOperation.m; path = Classes/PullRefreshOperation.m; sourceTree = "<group>"; };
+		9FB6F9BB127F2FEE00B824DB /* PullToRefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullToRefreshViewController.h; path = Classes/PullToRefreshViewController.h; sourceTree = "<group>"; };
+		9FB6F9BC127F2FEE00B824DB /* PullToRefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullToRefreshViewController.m; path = Classes/PullToRefreshViewController.m; sourceTree = "<group>"; };
 		9FEAB359127AB7D300C863A0 /* UIImage+pngThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+pngThumb.h"; sourceTree = "<group>"; };
 		9FEAB35A127AB7D300C863A0 /* UIImage+pngThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+pngThumb.m"; sourceTree = "<group>"; };
 		9FEAB3EE127AC8C500C863A0 /* halfStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = halfStar.png; path = Resources/halfStar.png; sourceTree = "<group>"; };
@@ -2317,8 +2317,8 @@
 		9FB6F57A127EB87100B824DB /* pull to refresh */ = {
 			isa = PBXGroup;
 			children = (
-				9FB6F972127F294C00B824DB /* PullRefreshOperation.h */,
-				9FB6F973127F294C00B824DB /* PullRefreshOperation.m */,
+				9FB6F9BB127F2FEE00B824DB /* PullToRefreshViewController.h */,
+				9FB6F9BC127F2FEE00B824DB /* PullToRefreshViewController.m */,
 				9FB6F57F127EB89100B824DB /* EGORefreshTableHeaderView.h */,
 				9FB6F580127EB89100B824DB /* EGORefreshTableHeaderView.m */,
 				9FB6F57C127EB88800B824DB /* _RootViewController.h */,
@@ -3020,7 +3020,7 @@
 				9FB6F581127EB89100B824DB /* EGORefreshTableHeaderView.m in Sources */,
 				9FB6F677127EC62900B824DB /* PullRefreshOperation.m in Sources */,
 				9FB6F6C9127ECE2100B824DB /* TraslationManager.m in Sources */,
-				9FB6F974127F294C00B824DB /* PullRefreshOperation.m in Sources */,
+				9FB6F9BD127F2FEE00B824DB /* PullToRefreshViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

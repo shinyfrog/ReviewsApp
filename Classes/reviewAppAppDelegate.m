@@ -8,7 +8,9 @@
 
 #import "reviewAppAppDelegate.h"
 #import "RootViewController.h"
-
+#import "ReviewsManager.h"
+#import "RootViewController.h"
+#import "PullRefreshOperation.h"
 
 @implementation reviewAppAppDelegate
 
@@ -55,6 +57,35 @@
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    
+    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+    NSDate* lastSync = [ud objectForKey:@"lastSync"];
+    NSDate *now      = [NSDate date];
+    
+    if (lastSync == nil || [now timeIntervalSinceDate:lastSync] >= 3600) {
+
+        PullRefreshOperation* pro = [[[PullRefreshOperation alloc] init] autorelease];
+        pro.father = self;
+        [self.pullToRefreshQueue addOperation:pro];
+
+    }
+    
+
+}
+
+- (void)syncTask {
+    
+    @try {
+
+        [ReviewsManager syncAllApps];
+        RootViewController* aviewController = (RootViewController*)self.navigationController.topViewController;
+        aviewController.fetchedResultsController = nil;
+        [aviewController.tableView reloadData];
+
+    } @catch (NSException * e) {
+        NSLog(@"%@", [e description]);
+    }
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

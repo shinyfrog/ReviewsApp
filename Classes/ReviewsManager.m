@@ -215,6 +215,7 @@
     }
     
     [app.managedObjectContext save:nil];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"lastSync"];    
 
 }
 
