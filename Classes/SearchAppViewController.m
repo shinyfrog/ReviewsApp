@@ -38,7 +38,7 @@
     self.title = @"Add An App";
 	[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_back.png"] withBackgroundTint:[UIColor grayColor]];    
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.451 green:0.518 blue:0.616 alpha:1.000]];
- 
+    
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButtonArrow.png"] 
                                                                     style:self.navigationItem.backBarButtonItem.style
                                                                    target:self.navigationItem.backBarButtonItem.target 
@@ -49,9 +49,14 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelOperation)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    [addButton release];
+    RootViewController* root = (RootViewController*)father;
+    
+    if ([root tableView:root.tableView numberOfRowsInSection:0] != 0) {
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelOperation)];
+        self.navigationItem.rightBarButtonItem = addButton;
+        [addButton release];
+    }
+
 }
 
 #pragma mark -

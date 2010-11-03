@@ -199,14 +199,23 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    [navBar setTintColor:kSCNavigationBarTintColor];
+    
+    UIImageView *imageView = (UIImageView *)[[navBar viewWithTag:kSCNavigationBarBackgroundImageTag] retain];
+    [imageView removeFromSuperview];
+    
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(addStoresAction)];
     self.navigationItem.rightBarButtonItem = doneButton;
     
     if ([father isKindOfClass:[AppDetailsController class]]) {
         UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(closeAction)];    
         self.navigationItem.leftBarButtonItem = cancelButton;
-    }
+    }    
     
+    [navBar insertSubview:imageView atIndex:0];    
+
 }
 
 - (IBAction) closeAction {

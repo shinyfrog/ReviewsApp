@@ -11,7 +11,7 @@
 #import "PullToRefreshViewController.h"
 
 
-@interface RootViewController : PullToRefreshViewController {
+@interface RootViewController : PullToRefreshViewController <UITableViewDelegate, UITableViewDataSource> {
 
 @private
     NSFetchedResultsController *fetchedResultsController_;
