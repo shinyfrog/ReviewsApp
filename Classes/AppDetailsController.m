@@ -321,7 +321,7 @@
                                                             delegate:self
                                                    cancelButtonTitle:@"Cancel"
                                               destructiveButtonTitle:nil
-                                                   otherButtonTitles:@"Open in Itunes", @"Copy Itunes link", nil];
+                                                   otherButtonTitles:@"Mark all as read", @"Open in iTunes", @"Copy iTunes link", nil];
     
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [popupQuery showInView:self.navigationController.navigationBar];
@@ -330,10 +330,20 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-
-    if (buttonIndex == 0) { // itunes
+    
+    if ( buttonIndex == 0) {
+        
+        for (AppStore* astore in self.application.stores) {
+            for (Review* rev in astore.reviews) {
+                    rev.viewedValue = YES;
+            }
+        }
+        
+        [self.tableView reloadData];
+        
+    } else if (buttonIndex == 1) { // itunes
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.application.link]];
-    } else if (buttonIndex == 1) { //clipboard
+    } else if (buttonIndex == 2) { //clipboard
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
         pasteboard.string = self.application.link;
     } 

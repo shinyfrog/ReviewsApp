@@ -92,6 +92,17 @@
     
     UIImageView *imageView = (UIImageView *)[[navBar viewWithTag:kSCNavigationBarBackgroundImageTag] retain];
     [imageView removeFromSuperview];
+ 
+    UIButton* shareInsideButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [shareInsideButton setFrame:CGRectMake(0, 0, 26, 19)];
+    [shareInsideButton addTarget:self action:@selector(actions:) forControlEvents:UIControlEventTouchUpInside];
+    shareInsideButton.backgroundColor = [UIColor clearColor];
+    shareInsideButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin; 
+    [shareInsideButton setImage:[UIImage imageNamed:@"actionIcon.png"] forState:UIControlStateNormal];
+    UIBarButtonItem* shareButton = [[UIBarButtonItem alloc] initWithCustomView:shareInsideButton];
+    //[self.navigationItem setRightBarButtonItem:shareButton animated:YES];
+    self.navigationItem.rightBarButtonItem = shareButton;    
+    
     
     [navBar insertSubview:imageView atIndex:0]; 
     
@@ -236,6 +247,29 @@
     }
     [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;    
     [self performSelectorOnMainThread:@selector(doneLoadingTableViewData) withObject:nil waitUntilDone:YES];    
+}
+
+#pragma mark -
+#pragma mark actions
+
+- (IBAction) actions:(id)sender {
+    
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil
+                                                            delegate:self
+                                                   cancelButtonTitle:@"Cancel"
+                                              destructiveButtonTitle:nil
+                                                   otherButtonTitles:@"Mark all as read", nil];
+    
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [popupQuery showInView:self.navigationController.navigationBar];
+    [popupQuery release];    
+    
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if ( buttonIndex == 0) {
+        [self markAllAsReaded:nil];
+    }
 }
 
 @end

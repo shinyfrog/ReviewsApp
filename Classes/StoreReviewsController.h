@@ -9,7 +9,7 @@
 #import "models.h"
 #import "PullToRefreshViewController.h"
 
-@interface StoreReviewsController : PullToRefreshViewController {
+@interface StoreReviewsController : PullToRefreshViewController <UIActionSheetDelegate> {
     
     AppStore* store;
     IBOutlet UIView* sectionHeader;

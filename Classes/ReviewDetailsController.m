@@ -77,7 +77,7 @@
                                                             delegate:self
                                                    cancelButtonTitle:@"Cancel"
                                               destructiveButtonTitle:nil
-                                                   otherButtonTitles:@"Mark Unreaded", @"Translate to english", @"Copy to Clipboard", nil];
+                                                   otherButtonTitles:@"Mark as Unread", @"Translate to english", @"Copy to Clipboard", nil];
     
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [popupQuery showInView:self.navigationController.navigationBar];
