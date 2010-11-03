@@ -253,7 +253,7 @@
     }
 
     newApp.appId = self.appId;
-    newApp.link = self.appLink;
+    newApp.link = [NSString stringWithFormat:@"itms://itunes.apple.com/us/app/1tapalarm/id%@?mt=8", self.appId];
     newApp.orderValue = 1;
 
     //Add Stores
