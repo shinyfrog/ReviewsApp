@@ -62,7 +62,7 @@
 							<object class="IBUIImageView" id="831381561">
 								<reference key="NSNextResponder" ref="410294280"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{15, 15}, {51, 50}}</string>
+								<string key="NSFrame">{{15, 15}, {50, 50}}</string>
 								<reference key="NSSuperview" ref="410294280"/>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -347,11 +347,13 @@
 						<int key="objectID">5</int>
 						<reference key="object" ref="453609347"/>
 						<reference key="parent" ref="278977036"/>
+						<string key="objectName">Store Flag</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">6</int>
 						<reference key="object" ref="831381561"/>
 						<reference key="parent" ref="278977036"/>
+						<string key="objectName">Store Mask</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">7</int>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CDEF6EE1281AFD400C5D169 /* readed_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CDEF6ED1281AFD400C5D169 /* readed_button@2x.png */; };
 		1D3623260D0F684500981E51 /* reviewAppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* reviewAppAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -654,6 +655,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CDEF6ED1281AFD400C5D169 /* readed_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "readed_button@2x.png"; path = "Resources/readed_button@2x.png"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* reviewAppAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewAppAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* reviewAppAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewAppAppDelegate.m; sourceTree = "<group>"; };
@@ -1712,6 +1714,7 @@
 		9F701838127989EA00B51AEB /* 2x */ = {
 			isa = PBXGroup;
 			children = (
+				0CDEF6ED1281AFD400C5D169 /* readed_button@2x.png */,
 				9FB6F107127C4CA200B824DB /* edit_button@2x.png */,
 				9FB6F33A127DC79100B824DB /* actionIcon@2x.png */,
 				9FEAB5EB127B11F600C863A0 /* backButtonArrow@2x.png */,
@@ -2949,6 +2952,7 @@
 				9FB6F567127EB86700B824DB /* grayArrow@2x.png in Resources */,
 				9FB6F568127EB86700B824DB /* whiteArrow.png in Resources */,
 				9FB6F569127EB86700B824DB /* whiteArrow@2x.png in Resources */,
+				0CDEF6EE1281AFD400C5D169 /* readed_button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
