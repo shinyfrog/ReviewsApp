@@ -103,12 +103,12 @@
         NSMutableString* stars = [NSMutableString string];
         
         for (int i=0; i<[self.review.stars intValue]; i++) {
-            [stars appendString:@"*"];
+            [stars appendString:@"★"];
         }
                     
         NSString* message = [NSString stringWithFormat:@"%@ %@\n\n%@\n%@ %@ \n\n\%@ on %@ \n\n\n %@", 
                              self.review.appstore.app.name, self.review.version,
-                             self.review.title, self.review.appstore.store.countryCode, stars,
+                             self.review.title, self.review.appstore.store.storeName, stars,
                              self.review.user, self.review.date, self.review.message
                              ];
 

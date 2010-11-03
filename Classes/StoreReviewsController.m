@@ -65,14 +65,16 @@
         stars = stars / allreviews;
     }
     
+    NSNumber* nsfloat = [NSNumber numberWithFloat:stars];
+    
     int i=0;
-    for (; i<stars; i++) {
+    for (; i<[nsfloat intValue]; i++) {
         UIImageView* ivstar = [ivstars objectAtIndex:i];
         ivstar.image = [UIImage imageNamed:@"fullStar.png"];
     }
-
-    if (i==5 && i-stars <= 0.5) {
-        UIImageView* ivstar = [ivstars objectAtIndex:(i-1)];
+    
+    if (i < 5 && (i+1)-[nsfloat floatValue] == 0.5) {
+        UIImageView* ivstar = [ivstars objectAtIndex:i];
         ivstar.image = [UIImage imageNamed:@"halfStar.png"];
     }
     
@@ -219,6 +221,7 @@
 }
 
 - (void) syncTask {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
     @try {
         [ReviewsManager getReviewsForAppStore:self.store];
         fetchedResultsController = nil;
@@ -231,7 +234,7 @@
                                                otherButtonTitles:nil] autorelease];
         [alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
     }
-    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;    
     [self performSelectorOnMainThread:@selector(doneLoadingTableViewData) withObject:nil waitUntilDone:YES];    
 }
 

@@ -16,7 +16,7 @@
 @implementation ReviewsManager
 
 + (void) getReviewsForAppStore:(AppStore*)as {
- 
+    
     NSArray *allreviews = [as.reviews allObjects];
     
     NSMutableDictionary *reviewIdDictionary = [NSMutableDictionary dictionary];
@@ -25,6 +25,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"http://ax.phobos.apple.com.edgesuite.net/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=2&type=Purple+Software"
                       , as.app.appId];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:sUrl]];
+    [ASIHTTPRequest setShouldUpdateNetworkActivityIndicator:NO];
     [request addRequestHeader:@"X-Apple-Store-Front" value:[NSString stringWithFormat:@"%@-1", as.store.storeID]]; //@"143441"
     [request addRequestHeader:@"User-Agent" value:@"iTunes/4.2 (Macintosh; U; PPC Mac OS X 10.2)"];
     [request startSynchronous];
@@ -196,7 +197,9 @@
 
 
 + (void) syncAllApps {
-
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
+    
     reviewAppAppDelegate* app    = [[UIApplication sharedApplication] delegate];
     NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
     NSEntityDescription *entity  = [NSEntityDescription entityForName:@"AppStore" inManagedObjectContext:app.managedObjectContext];
@@ -215,7 +218,9 @@
     }
     
     [app.managedObjectContext save:nil];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"lastSync"];    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"lastSync"]; 
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;    
 
 }
 
@@ -224,12 +229,16 @@
     
     reviewAppAppDelegate* app    = [[UIApplication sharedApplication] delegate];    
 
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;    
+    
     for (AppStore* as in newApp.stores) {
         [ReviewsManager getReviewsForAppStore:as];
     }
     
     [app.managedObjectContext save:nil];            
 
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;    
+    
 }
 
 + (void) saveImageWithUrl:(NSString*)imageURL inApp:(App*)app {

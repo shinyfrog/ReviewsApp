@@ -7,13 +7,19 @@
 //
 
 #import "PullRefreshOperation.h"
-
+#import "reviewAppAppDelegate.h"
 
 @implementation PullRefreshOperation
 
 @synthesize father;
 
 - (void)main {
+    
+    reviewAppAppDelegate* app = [[UIApplication sharedApplication] delegate];
+    if ([app.pullToRefreshQueue operationCount] > 1) {
+        [father performSelectorOnMainThread:@selector(doneLoadingTableViewData) withObject:nil waitUntilDone:YES];        
+    }
+    
     [father performSelector:@selector(syncTask)];
 
 }

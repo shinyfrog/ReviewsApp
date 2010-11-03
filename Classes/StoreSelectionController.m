@@ -72,19 +72,24 @@
     NSMutableArray* stores = [NSMutableArray arrayWithCapacity:100];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143441" name:@"United States" languageCode:@"us"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143444" name:@"United Kingdom" languageCode:@"uk"]];
-    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143505" name:@"Argentina" languageCode:@"ar"]];
+    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143442" name:@"France" languageCode:@"fr"]];
+    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143455" name:@"Canada" languageCode:@"ca"]];
+    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143443" name:@"Deutschland" languageCode:@"de"]];    
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143460" name:@"Australia" languageCode:@"au"]];
+    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143462" name:@"Japan" languageCode:@"jp"]];
+    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143450" name:@"Italia" languageCode:@"it"]];
+    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143465" name:@"China" languageCode:@"cn"]];
+    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143452" name:@"Nederlands" languageCode:@"nl"]];
+    
+    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143505" name:@"Argentina" languageCode:@"ar"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143446" name:@"Belgium" languageCode:@"be"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143503" name:@"Brazil" languageCode:@"br"]];
-    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143455" name:@"Canada" languageCode:@"ca"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143483" name:@"Chile" languageCode:@"cl"]];
-    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143465" name:@"China" languageCode:@"cn"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143501" name:@"Colombia" languageCode:@"co"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143495" name:@"Costa Rica" languageCode:@"cr"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143494" name:@"Croatia" languageCode:@"hr"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143489" name:@"Czech Republic" languageCode:@"cs"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143458" name:@"Denmark" languageCode:@"dk"]];
-    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143443" name:@"Deutschland" languageCode:@"de"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143508" name:@"Dominican Republic" languageCode:@"do"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143509" name:@"Ecuador" languageCode:@"ec"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143516" name:@"Egypt" languageCode:@"eg"]];
@@ -92,7 +97,6 @@
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143454" name:@"Espana" languageCode:@"es"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143518" name:@"Estonia" languageCode:@"ee"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143447" name:@"Finland" languageCode:@"fi"]];
-    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143442" name:@"France" languageCode:@"fr"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143448" name:@"Greece" languageCode:@"gr"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143504" name:@"Guatemala" languageCode:@"gt"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143510" name:@"Honduras" languageCode:@"hn"]];
@@ -102,7 +106,6 @@
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143476" name:@"Indonesia" languageCode:@"id"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143449" name:@"Ireland" languageCode:@"ie"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143491" name:@"Israel" languageCode:@"il"]];
-    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143450" name:@"Italia" languageCode:@"it"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143517" name:@"Kazakhstan" languageCode:@"kz"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143466" name:@"Korea" languageCode:@"kp"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143493" name:@"Kuwait" languageCode:@"kw"]];
@@ -115,7 +118,6 @@
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143473" name:@"Malaysia" languageCode:@"my"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143468" name:@"Mexico" languageCode:@"mx"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143523" name:@"Moldova" languageCode:@"md"]];
-    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143452" name:@"Nederland" languageCode:@"nl"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143461" name:@"New Zealand" languageCode:@"nz"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143457" name:@"Norway" languageCode:@"no"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143512" name:@"Nicaragua" languageCode:@"ni"]];
@@ -145,7 +147,6 @@
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143514" name:@"Uruguay" languageCode:@"uy"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143502" name:@"Venezuela" languageCode:@"ve"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143471" name:@"Vietnam" languageCode:@"vn"]];
-    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143462" name:@"Japan" languageCode:@"jp"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143511" name:@"Jamaica" languageCode:@"jm"]];
 
     self.availableStores = stores;
