@@ -142,7 +142,15 @@
     
     cell.appStoreIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", astore.store.countryCode]];
     cell.appStoreNameLabel.text = astore.store.storeName;
-    cell.appStoreReviewsLabel.text = [NSString stringWithFormat:@"%d Reviews", [astore.reviews count]];
+    
+    int revCount = [astore.reviews count];
+    
+    if (revCount == 1) {
+        cell.appStoreReviewsLabel.text = @"1 Review";    
+    } else {
+        cell.appStoreReviewsLabel.text = [NSString stringWithFormat:@"%d Reviews", [astore.reviews count]];    
+    }
+
     
     float stars = 0;
     int unreadCount = 0;
@@ -184,8 +192,13 @@
     for (AppStore* as in self.application.stores) {
         count += [as.reviews count];
     }
-    
-    sectionHeaderLabel.text = [NSString stringWithFormat:@"%d Reviews", count];
+
+    if (count == 1) {
+        sectionHeaderLabel.text = @"1 Review";
+    } else {
+        sectionHeaderLabel.text = [NSString stringWithFormat:@"%d Reviews", count];
+    }
+
     return sectionHeader;
 
 }

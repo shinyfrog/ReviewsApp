@@ -158,7 +158,15 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    sectionHeaderLabel.text = [NSString stringWithFormat:@"%d Reviews", [self.store.reviews count]];
+    
+    int revCount = [self.store.reviews count];
+    
+    if (revCount == 1) {
+        sectionHeaderLabel.text = @"1 Review";    
+    } else {
+        sectionHeaderLabel.text = [NSString stringWithFormat:@"%d Reviews", revCount];    
+    }    
+
     return sectionHeader;
     
 }
