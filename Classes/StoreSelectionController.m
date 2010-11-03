@@ -282,6 +282,8 @@
         [ReviewsManager newAppSync:newApp];
     } @catch (NSException * e) {
         
+        NSLog(@"%@", [e description]);
+        
         if (firstSync) {
             
             for (AppStore* as in newApp.stores) {

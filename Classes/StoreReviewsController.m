@@ -184,8 +184,8 @@
     [fetchRequest setEntity:entity];
     
     NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"insertionDate" ascending:NO] autorelease];
-    NSSortDescriptor *sortDescriptor2 = [[[NSSortDescriptor alloc] initWithKey:@"storeOrder" ascending:YES] autorelease];
-    NSArray *sortDescriptors = [[[NSArray alloc] initWithObjects:sortDescriptor, sortDescriptor2, nil] autorelease];
+    //NSSortDescriptor *sortDescriptor2 = [[[NSSortDescriptor alloc] initWithKey:@"storeOrder" ascending:YES] autorelease];
+    NSArray *sortDescriptors = [[[NSArray alloc] initWithObjects:sortDescriptor, nil] autorelease];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"appstore.app.appId = %@ AND appstore.store.storeID = %@", 

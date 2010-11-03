@@ -129,6 +129,7 @@
         
     } else {
         [NSException raise:@"Application Id Not Valid" format:@"Application Id Not Valid"];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
     }
     
     NSLog(@"Stop");
@@ -217,7 +218,10 @@
         [ReviewsManager getReviewsForAppStore:as];
     }
     
-    [app.managedObjectContext save:nil];
+    [app.managedObjectContext performSelectorOnMainThread:@selector(save:) 
+                                               withObject:nil 
+                                            waitUntilDone:YES];
+
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"lastSync"]; 
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;    
@@ -235,7 +239,9 @@
         [ReviewsManager getReviewsForAppStore:as];
     }
     
-    [app.managedObjectContext save:nil];            
+    [app.managedObjectContext performSelectorOnMainThread:@selector(save:) 
+                                               withObject:nil 
+                                            waitUntilDone:YES];
 
     [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;    
     

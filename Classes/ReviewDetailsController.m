@@ -39,7 +39,7 @@
 
     self.title = @"Review";
 
-    reviewAuthorLabel.text = [NSString stringWithFormat:@"%@ on %@", review.user, review.date];
+    reviewAuthorLabel.text = [NSString stringWithFormat:@"%@ by %@", review.date, review.user];
     reviewVersionLabel.text = [NSString stringWithFormat:@"%@", review.version];
     reviewCoutryLabel.text = [review.appstore.store.countryCode uppercaseString];
     countryFlagImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@30.png", review.appstore.store.countryCode]];
