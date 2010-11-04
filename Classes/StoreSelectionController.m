@@ -348,7 +348,17 @@
     cell.storeNameLabel.text = store.name;
     cell.storeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@30.png", store.languageCode]];
 
+	cell.imageView.contentMode = UIViewContentModeTopLeft;
+	
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)_tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (indexPath.row == [self tableView:_tableView numberOfRowsInSection:0] -1) {
+		return 42;
+	}
+	return 44;
+	
 }
 
 #pragma mark -

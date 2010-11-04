@@ -35,7 +35,7 @@
 
 - (void) viewDidLoad {
     
-    self.title = @"Add An App";
+    self.title = @"Add an App";
 	[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_back.png"] withBackgroundTint:[UIColor grayColor]];    
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.451 green:0.518 blue:0.616 alpha:1.000]];
     
@@ -123,7 +123,17 @@
     NSDictionary* data = [self.searchResults objectAtIndex:indexPath.row];    
     cell.applicationNameLabel.text = [data objectForKey:@"titleNoFormatting"];
     
+	cell.imageView.contentMode = UIViewContentModeTopLeft;
+	
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)_tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (indexPath.row == [self tableView:_tableView numberOfRowsInSection:0] -1) {
+		return 42;
+	}
+	return 44;
+	
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

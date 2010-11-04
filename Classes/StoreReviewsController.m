@@ -147,7 +147,17 @@
     cell.reviewTitle.text = review.title;
     [cell setStars:review.stars];
 
+	cell.imageView.contentMode = UIViewContentModeTopLeft;
+	
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)_tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (indexPath.row == [self tableView:_tableView numberOfRowsInSection:0] -1) {
+		return 78;
+	}
+	return 80;
+	
 }
 
 #pragma mark -
