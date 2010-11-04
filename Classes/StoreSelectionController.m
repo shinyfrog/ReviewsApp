@@ -291,6 +291,8 @@
         [ReviewsManager newAppSync:newApp];
     } @catch (NSException * e) {
         
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;           
         NSLog(@"%@", [e description]);
         
         if (firstSync) {
