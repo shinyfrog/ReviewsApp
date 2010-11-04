@@ -27,8 +27,12 @@
 #import "EGORefreshTableHeaderView.h"
 
 
-#define TEXT_COLOR	 [UIColor colorWithRed:87.0/255.0 green:108.0/255.0 blue:137.0/255.0 alpha:1.0]
-#define BORDER_COLOR [UIColor colorWithRed:87.0/255.0 green:108.0/255.0 blue:137.0/255.0 alpha:1.0]
+//#define TEXT_COLOR	 [UIColor colorWithRed:87.0/255.0 green:108.0/255.0 blue:137.0/255.0 alpha:1.0]
+#define TEXT_COLOR         [UIColor colorWithRed:198.0/255.0 green:198.0/255.0 blue:198.0/255.0 alpha:1.0]
+#define TEXT_SHADOW_COLOR  [UIColor colorWithRed:59.0/255.0 green:59.0/255.0 blue:59.0/255.0 alpha:1.0]
+
+//#define BORDER_COLOR [UIColor colorWithRed:87.0/255.0 green:108.0/255.0 blue:137.0/255.0 alpha:1.0]
+#define BORDER_COLOR [UIColor colorWithRed:0.56 green:0.60 blue:0.56 alpha:0.3]
 
 
 @implementation EGORefreshTableHeaderView
@@ -41,11 +45,15 @@
 		
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         
-		lastUpdatedLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 30.0f, self.frame.size.width, 20.0f)];
+		bgImage = [[UIImageView alloc] initWithFrame:self.bounds];
+		[self addSubview:bgImage];
+		bgImage.image = [UIImage imageNamed:@"pull_to_refresh_bg"];
+		
+		/*lastUpdatedLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 30.0f, self.frame.size.width, 20.0f)];
 		lastUpdatedLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 		lastUpdatedLabel.font = [UIFont systemFontOfSize:12.0f];
 		lastUpdatedLabel.textColor = TEXT_COLOR;
-		lastUpdatedLabel.shadowColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
+		lastUpdatedLabel.shadowColor = TEXT_SHADOW_COLOR;
 		lastUpdatedLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
 		lastUpdatedLabel.backgroundColor = [UIColor clearColor];
 		lastUpdatedLabel.textAlignment = UITextAlignmentCenter;
@@ -56,14 +64,14 @@
 			lastUpdatedLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"EGORefreshTableView_LastRefresh"];
 		} else {
 			[self setCurrentDate];
-		}
-		
-		statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 48.0f, self.frame.size.width, 20.0f)];
+		}*/
+				
+		statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 38.0f, self.frame.size.width, 20.0f)];
 		statusLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-		statusLabel.font = [UIFont boldSystemFontOfSize:13.0f];
+		statusLabel.font = [UIFont boldSystemFontOfSize:16.0f];
 		statusLabel.textColor = TEXT_COLOR;
-		statusLabel.shadowColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
-		statusLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
+		statusLabel.shadowColor = TEXT_SHADOW_COLOR;
+		statusLabel.shadowOffset = CGSizeMake(0.0f, -1.0f);
 		statusLabel.backgroundColor = [UIColor clearColor];
 		statusLabel.textAlignment = UITextAlignmentCenter;
 		[self setState:EGOOPullRefreshNormal];
@@ -71,21 +79,24 @@
 		[statusLabel release];
 		
 		arrowImage = [[CALayer alloc] init];
-		arrowImage.frame = CGRectMake(25.0f, frame.size.height - 65.0f, 30.0f, 55.0f);
+		arrowImage.frame = CGRectMake(25.0f, frame.size.height - 40.0f, 18.0f, 24.0f);
 		arrowImage.contentsGravity = kCAGravityResizeAspect;
-		arrowImage.contents = (id)[UIImage imageNamed:@"blueArrow.png"].CGImage;
+		arrowImage.contents = (id)[UIImage imageNamed:@"pull_to_refresh_arrow"].CGImage;
 		[[self layer] addSublayer:arrowImage];
 		[arrowImage release];
 		
-		activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+		activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 		activityView.frame = CGRectMake(25.0f, frame.size.height - 38.0f, 20.0f, 20.0f);
 		activityView.hidesWhenStopped = YES;
 		[self addSubview:activityView];
 		[activityView release];
 		
+		
+		
     }
     return self;
 }
+
 
 - (void)drawRect:(CGRect)rect{
 	CGContextRef context = UIGraphicsGetCurrentContext();
@@ -98,7 +109,7 @@
 }
 
 - (void)setCurrentDate {
-	NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+	/*NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
 	[formatter setAMSymbol:@"AM"];
 	[formatter setPMSymbol:@"PM"];
 	[formatter setDateFormat:@"MM/dd/yyyy hh:mm:a"];
@@ -106,6 +117,7 @@
 	[[NSUserDefaults standardUserDefaults] setObject:lastUpdatedLabel.text forKey:@"EGORefreshTableView_LastRefresh"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 	[formatter release];
+	 */ 
 }
 
 - (void)setState:(EGOPullRefreshState)aState{

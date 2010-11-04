@@ -36,6 +36,7 @@ typedef enum{
 
 @interface EGORefreshTableHeaderView : UIView {
 	
+	UIImageView *bgImage;
 	UILabel *lastUpdatedLabel;
 	UILabel *statusLabel;
 	CALayer *arrowImage;

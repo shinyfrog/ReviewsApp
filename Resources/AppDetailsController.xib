@@ -12,6 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="18"/>
 			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -231,7 +232,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{320, 46}</string>
 						<reference key="NSSuperview" ref="491606839"/>
-						<reference key="NSWindow"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
@@ -244,7 +244,6 @@
 						<int key="NSvFlags">294</int>
 						<string key="NSFrame">{{15, 11}, {220, 26}}</string>
 						<reference key="NSSuperview" ref="491606839"/>
-						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -273,7 +272,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{260, 9}, {52, 31}}</string>
 						<reference key="NSSuperview" ref="491606839"/>
-						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -292,7 +290,7 @@
 						</object>
 						<object class="NSColor" key="IBUINormalTitleShadowColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MCAwIDAgMC43NQA</bytes>
+							<bytes key="NSRGB">MCAwIDAgMC41AA</bytes>
 						</object>
 						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
@@ -302,7 +300,6 @@
 				</object>
 				<string key="NSFrameSize">{320, 46}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
