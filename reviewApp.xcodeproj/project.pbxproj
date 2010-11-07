@@ -21,6 +21,7 @@
 		28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28860BE40F44EE6400985440 /* CoreData.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		9F0A06581286F3BC00ADF3AB /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F0A06571286F3BC00ADF3AB /* Entitlements.plist */; };
 		9F0A990B12747C8700928E4D /* AppDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A990A12747C8700928E4D /* AppDetailsController.m */; };
 		9F0A990E12747CD500928E4D /* StoreReviewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A990D12747CD500928E4D /* StoreReviewsController.m */; };
 		9F0A991112747CE200928E4D /* ReviewDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A991012747CE200928E4D /* ReviewDetailsController.m */; };
@@ -680,6 +681,7 @@
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* reviewApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "reviewApp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		9F0A06571286F3BC00ADF3AB /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		9F0A990912747C8700928E4D /* AppDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDetailsController.h; sourceTree = "<group>"; };
 		9F0A990A12747C8700928E4D /* AppDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDetailsController.m; sourceTree = "<group>"; };
 		9F0A990C12747CD500928E4D /* StoreReviewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreReviewsController.h; sourceTree = "<group>"; };
@@ -1445,6 +1447,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				9F0A06571286F3BC00ADF3AB /* Entitlements.plist */,
 				9F25B2C2126EE0EA0012E5CF /* MobileCoreServices.framework */,
 				9F25B2DE126EE1740012E5CF /* libz.1.1.3.dylib */,
 			);
@@ -2977,6 +2980,7 @@
 				0CDEF8D3128302D200C5D169 /* pull_to_refresh_arrow.png in Resources */,
 				0CDEF92D128402DB00C5D169 /* icon@2x.png in Resources */,
 				0CC69093128459E800F4142C /* icon.png in Resources */,
+				9F0A06581286F3BC00ADF3AB /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3077,11 +3081,54 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = reviewApp_Prefix.pch;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "reviewApp-Info.plist";
 				PRODUCT_NAME = reviewApp;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		9F0A065F1286F3E100ADF3AB /* distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shiny Frog";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_PKGINFO_FILE = YES;
+				INFOPLIST_FILE = "reviewApp-Info.plist";
+				MACH_O_TYPE = mh_execute;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
+				PRODUCT_NAME = ReviewApp;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "51FE2F8A-6CDE-4004-84D1-3B514AE518F2";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
+				SDKROOT = iphoneos4.1;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = distribution;
+		};
+		9F0A06601286F3E100ADF3AB /* distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = reviewApp_Prefix.pch;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				INFOPLIST_FILE = "reviewApp-Info.plist";
+				PRODUCT_NAME = reviewApp;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = distribution;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -3093,7 +3140,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos4.1;
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -3119,6 +3167,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				9F0A06601286F3E100ADF3AB /* distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3128,6 +3177,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				9F0A065F1286F3E100ADF3AB /* distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

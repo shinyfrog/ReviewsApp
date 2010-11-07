@@ -92,7 +92,7 @@
     UINavigationBar *navBar = self.navigationController.navigationBar;
     [navBar setTintColor:kSCNavigationBarTintColor];
     
-    UIImageView *imageView = (UIImageView *)[[navBar viewWithTag:kSCNavigationBarBackgroundImageTag] retain];
+    UIImageView *imageView = (UIImageView *)[[[navBar viewWithTag:kSCNavigationBarBackgroundImageTag] retain] autorelease];
     [imageView removeFromSuperview];
     
     
@@ -270,7 +270,7 @@
                                                                                 father:self 
                                                                                  appId:self.application.appId] autorelease];
     
-    UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:ssc];
+    UINavigationController *controller = [[[UINavigationController alloc] initWithRootViewController:ssc] autorelease];
     [[self navigationController] presentModalViewController:controller animated:YES];
     
 }

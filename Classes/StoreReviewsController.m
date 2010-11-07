@@ -90,7 +90,7 @@
     UINavigationBar *navBar = self.navigationController.navigationBar;
     [navBar setTintColor:kSCNavigationBarTintColor];
     
-    UIImageView *imageView = (UIImageView *)[[navBar viewWithTag:kSCNavigationBarBackgroundImageTag] retain];
+    UIImageView *imageView = (UIImageView *)[[[navBar viewWithTag:kSCNavigationBarBackgroundImageTag] retain] autorelease];
     [imageView removeFromSuperview];
  
     UIButton* shareInsideButton = [UIButton buttonWithType:UIButtonTypeCustom];

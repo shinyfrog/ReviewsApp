@@ -45,7 +45,7 @@
     if ([self.fetchedResultsController.fetchedObjects count] == 0) {
         SearchAppViewController* addAppView = [[[SearchAppViewController alloc] initWithNibName:@"SearchAppViewController" bundle:nil father:self] autorelease];
         
-        UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:addAppView];
+        UINavigationController *controller = [[[UINavigationController alloc] initWithRootViewController:addAppView] autorelease];
         [[self navigationController] presentModalViewController:controller animated:NO];   
     }
     
@@ -80,7 +80,7 @@
 - (void)insertNewObject {
     SearchAppViewController* addAppView = [[[SearchAppViewController alloc] initWithNibName:@"SearchAppViewController" bundle:nil father:self] autorelease];
 
-    UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:addAppView];
+    UINavigationController *controller = [[[UINavigationController alloc] initWithRootViewController:addAppView] autorelease];
     [[self navigationController] presentModalViewController:controller animated:YES];
     
     //[self presentModalViewController:addAppView animated:YES];

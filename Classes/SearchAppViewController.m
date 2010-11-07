@@ -158,7 +158,7 @@
 
     if ([appid length] == 0) { return; }
     
-    StoreSelectionController* ssc = [[StoreSelectionController alloc] initWithNibName:@"StoreSelectController" bundle:nil father:father appId:appid];
+    StoreSelectionController* ssc = [[[StoreSelectionController alloc] initWithNibName:@"StoreSelectController" bundle:nil father:father appId:appid] autorelease];
     ssc.appLink = self.appLink;
     [self.navigationController pushViewController:ssc animated:YES];
 
