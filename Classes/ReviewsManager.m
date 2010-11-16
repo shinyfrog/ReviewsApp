@@ -16,7 +16,7 @@
 @implementation ReviewsManager
 
 + (void) getReviewsForAppStore:(AppStore*)as {
-    
+    	
     NSArray *allreviews = [as.reviews allObjects];
     
     NSMutableDictionary *reviewIdDictionary = [NSMutableDictionary dictionary];
@@ -38,7 +38,8 @@
 	NSArray *resultNodes = NULL;
 	resultNodes = [rssParser nodesForXPath:@"/t:Document/t:View/t:ScrollView/t:VBoxView/t:View/t:MatrixView/t:VBoxView" namespaceMappings:mappings error:nil];	
 	NSArray *reviews = nil;
-    
+	
+
     if ([resultNodes count] != 0) {    
         reviews = [[resultNodes objectAtIndex:0] nodesForXPath:@"t:VBoxView/t:VBoxView" namespaceMappings:mappings error:nil];
         
@@ -76,34 +77,35 @@
 
             storeOrder ++;
 
-            NSLog(@"%@, %@, %@, %@, %@, %@", title, body, user, rating, date, version);
+            SFLog(@"%@, %@, %@, %@, %@, %@", title, body, user, rating, date, version);
         }    
     }
     
+	
     NSArray *resultNodes2 = NULL;
 	resultNodes2 = [rssParser nodesForXPath:@"/t:Document/t:View" namespaceMappings:mappings error:nil];
     
     if ([resultNodes2 count] != 0) {
     
         NSArray *Hbox= [[resultNodes2 objectAtIndex:0] nodesForXPath:@"t:ScrollView/t:VBoxView/t:View/t:MatrixView/t:VBoxView/t:HBoxView" namespaceMappings:mappings error:nil];
-        
+
         //App name
         if (as.app.name == nil || [as.app.name length] == 0) {
             NSArray *textView = [[Hbox objectAtIndex:0] nodesForXPath:@"t:VBoxView/t:VBoxView/t:MatrixView/t:VBoxView/t:TextView" namespaceMappings:mappings error:nil];
             NSString *name = [[[[textView objectAtIndex:0] nodesForXPath:@"t:SetFontStyle/t:GotoURL" namespaceMappings:mappings error:nil] objectAtIndex:0] stringValue];
             name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             as.app.name = name;
-            NSLog(@"app Name : %@", name);
+            SFLog(@"app Name : %@", name);
         }
         
+		
         //App Image
         if (as.app.image == nil || [as.app.image length] == 0) {
             NSArray *pictureView = [[Hbox objectAtIndex:0] nodesForXPath:@"t:VBoxView/t:VBoxView/t:MatrixView/t:GotoURL/t:View/t:PictureView" namespaceMappings:mappings error:nil];
             NSString *imageURL = [[[pictureView objectAtIndex:0] attributeForName:@"url"] stringValue];
-            NSLog(@"imageURL : %@", imageURL);
+            SFLog(@"imageURL : %@", imageURL);
             [ReviewsManager saveImageWithUrl:imageURL inApp:as.app];
         }
-        
         
         @try {
             NSArray *vbox = [[Hbox objectAtIndex:0] nodesForXPath:@"t:VBoxView" namespaceMappings:mappings error:nil];
@@ -112,7 +114,7 @@
             NSArray *vb = [[hbox objectAtIndex:0] nodesForXPath:@"t:VBoxView" namespaceMappings:mappings error:nil];
             NSArray *hb = [[vb objectAtIndex:2] nodesForXPath:@"t:HBoxView" namespaceMappings:mappings error:nil];
             NSString *ratingStore = [[[hb objectAtIndex:0] attributeForName:@"alt"] stringValue];
-            NSLog(@"Store Rating : %@", ratingStore);
+            SFLog(@"Store Rating : %@", ratingStore);
 
             float storeStars = [[ratingStore substringToIndex:1] floatValue];
 
@@ -132,7 +134,7 @@
         [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
     }
     
-    NSLog(@"Stop");
+    SFLog(@"Stop");
     
 }
 
@@ -235,9 +237,11 @@
 
     [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;    
     
+	
     for (AppStore* as in newApp.stores) {
         [ReviewsManager getReviewsForAppStore:as];
     }
+	
     
     [app.managedObjectContext performSelectorOnMainThread:@selector(save:) 
                                                withObject:nil 
@@ -268,7 +272,7 @@
     if ( ![fileManager fileExistsAtPath:picturesDirectory isDirectory:NULL] ) {
         NSError* error = nil;
         [fileManager createDirectoryAtPath:picturesDirectory withIntermediateDirectories:NO attributes:nil error:&error];        
-        if (error) { NSLog(@"Error Creating pictures folder"); }
+        if (error) { SFLog(@"Error Creating pictures folder"); }
     }
     
     [picturesDirectory appendString:[NSString stringWithFormat:@"%@.png", app.appId]];
