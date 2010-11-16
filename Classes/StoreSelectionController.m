@@ -74,12 +74,12 @@
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143444" name:@"United Kingdom" languageCode:@"uk"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143442" name:@"France" languageCode:@"fr"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143455" name:@"Canada" languageCode:@"ca"]];
-    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143443" name:@"Deutschland" languageCode:@"de"]];    
+    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143443" name:@"Germany" languageCode:@"de"]];    
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143460" name:@"Australia" languageCode:@"au"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143462" name:@"Japan" languageCode:@"jp"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143450" name:@"Italia" languageCode:@"it"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143465" name:@"China" languageCode:@"cn"]];
-    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143452" name:@"Nederlands" languageCode:@"nl"]];
+    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143452" name:@"Nederland" languageCode:@"nl"]];
     
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143505" name:@"Argentina" languageCode:@"ar"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143446" name:@"Belgium" languageCode:@"be"]];
@@ -94,7 +94,7 @@
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143509" name:@"Ecuador" languageCode:@"ec"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143516" name:@"Egypt" languageCode:@"eg"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143506" name:@"El Salvador" languageCode:@"sv"]];
-    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143454" name:@"Espana" languageCode:@"es"]];
+    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143454" name:@"Spain" languageCode:@"es"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143518" name:@"Estonia" languageCode:@"ee"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143447" name:@"Finland" languageCode:@"fi"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143448" name:@"Greece" languageCode:@"gr"]];
@@ -121,7 +121,7 @@
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143461" name:@"New Zealand" languageCode:@"nz"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143457" name:@"Norway" languageCode:@"no"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143512" name:@"Nicaragua" languageCode:@"ni"]];
-    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143445" name:@"Osterreich" languageCode:@"at"]];
+    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143445" name:@"Austria" languageCode:@"at"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143477" name:@"Pakistan" languageCode:@"pk"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143485" name:@"Panama" languageCode:@"pa"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143513" name:@"Paraguay" languageCode:@"py"]];
@@ -133,7 +133,7 @@
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143487" name:@"Romania" languageCode:@"ro"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143469" name:@"Russia" languageCode:@"ru"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143479" name:@"Saudi Arabia" languageCode:@"sa"]];
-    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143459" name:@"Schweiz/Suisse" languageCode:@"ch"]];
+    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143459" name:@"Switzerland" languageCode:@"ch"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143464" name:@"Singapore" languageCode:@"sg"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143496" name:@"Slovakia" languageCode:@"sk"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143499" name:@"Slovenia" languageCode:@"si"]];
