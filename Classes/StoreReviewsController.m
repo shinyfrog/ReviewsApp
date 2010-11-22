@@ -143,7 +143,7 @@
     } else {
         cell.reviewTitle.textColor = [UIColor colorWithRed:0.28 green:0.29 blue:0.33 alpha:1.0];
     }
-
+    
     cell.reviewTitle.text = review.title;
     [cell setStars:review.stars];
 
@@ -201,7 +201,7 @@
     [self.tableView reloadData];
     
 }
-
+ 
 - (NSFetchedResultsController *)fetchedResultsController {
     
     if (fetchedResultsController_ != nil) { return fetchedResultsController_; }
@@ -213,8 +213,8 @@
     [fetchRequest setEntity:entity];
     
     NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"insertionDate" ascending:NO] autorelease];
-    //NSSortDescriptor *sortDescriptor2 = [[[NSSortDescriptor alloc] initWithKey:@"storeOrder" ascending:YES] autorelease];
-    NSArray *sortDescriptors = [[[NSArray alloc] initWithObjects:sortDescriptor, nil] autorelease];
+    NSSortDescriptor *sortDescriptor2 = [[[NSSortDescriptor alloc] initWithKey:@"storeOrder" ascending:YES] autorelease];
+    NSArray *sortDescriptors = [[[NSArray alloc] initWithObjects:sortDescriptor, sortDescriptor2, nil] autorelease];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"appstore.app.appId = %@ AND appstore.store.storeID = %@", 

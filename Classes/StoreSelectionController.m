@@ -77,7 +77,7 @@
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143443" name:@"Germany" languageCode:@"de"]];    
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143460" name:@"Australia" languageCode:@"au"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143462" name:@"Japan" languageCode:@"jp"]];
-    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143450" name:@"Italia" languageCode:@"it"]];
+    [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143450" name:@"Italy" languageCode:@"it"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143465" name:@"China" languageCode:@"cn"]];
     [stores addObject:[AvailableStore makeAvailableStoreWithId:@"143452" name:@"Nederland" languageCode:@"nl"]];
     

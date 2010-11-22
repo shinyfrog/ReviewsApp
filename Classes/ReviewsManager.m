@@ -181,8 +181,9 @@
         //Add        
         rev = [Review insertInManagedObjectContext:app.managedObjectContext];
         rev.reviewId = reviewId;
+        rev.insertionDate = [NSDate date];
     }
-
+    
     rev.title = title;
     rev.message = body;
     rev.user = user;
