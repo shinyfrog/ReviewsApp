@@ -83,7 +83,7 @@
         [aviewController.tableView reloadData];
 
     } @catch (NSException * e) {
-        NSLog(@"%@", [e description]);
+        SFLog(@"%@", [e description]);
     }
 
 }
@@ -98,7 +98,7 @@
     NSError *error = nil;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            SFLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         } 
     }
@@ -141,7 +141,7 @@
 	NSError *error;
     persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
     if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
-        NSLog(@"%@", [error description]);
+        SFLog(@"%@", [error description]);
     }
 
     return persistentStoreCoordinator;

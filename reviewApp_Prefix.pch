@@ -14,3 +14,9 @@
     #import <UIKit/UIKit.h>
     #import <CoreData/CoreData.h>
 #endif
+
+#ifdef DEBUG
+#define SFLog(...) NSLog(@"%s:%d  %@", __PRETTY_FUNCTION__, __LINE__, [NSString stringWithFormat:__VA_ARGS__])
+#else
+#define SFLog(...)
+#endif

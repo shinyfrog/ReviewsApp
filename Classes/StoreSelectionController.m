@@ -284,6 +284,8 @@
             [app.managedObjectContext deleteObject:as];
         }
     }
+	
+	[app.managedObjectContext processPendingChanges];
 
     //sync
     
@@ -293,7 +295,7 @@
         
         
         [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;           
-        NSLog(@"%@", [e description]);
+        SFLog(@"%@", [e description]);
         
         if (firstSync) {
             

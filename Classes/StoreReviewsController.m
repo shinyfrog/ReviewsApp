@@ -229,7 +229,7 @@
     
     NSError *error = nil;
     if (![fetchedResultsController_ performFetch:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        SFLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
     
