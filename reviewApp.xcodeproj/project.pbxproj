@@ -672,7 +672,7 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* reviewAppAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewAppAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* reviewAppAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewAppAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* reviewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reviewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* AppStronomy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStronomy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28860BE40F44EE6400985440 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -680,7 +680,7 @@
 		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* reviewApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "reviewApp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* AppStronomy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AppStronomy-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9F0A06571286F3BC00ADF3AB /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		9F0A990912747C8700928E4D /* AppDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDetailsController.h; sourceTree = "<group>"; };
 		9F0A990A12747C8700928E4D /* AppDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDetailsController.m; sourceTree = "<group>"; };
@@ -1429,7 +1429,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* reviewApp.app */,
+				1D6058910D05DD3D006BFB54 /* AppStronomy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1478,7 +1478,7 @@
 				9F70179A127985E800B51AEB /* AppDetailsController.xib */,
 				9F70179F127985E800B51AEB /* StoreReviewsController.xib */,
 				9F70179C127985E800B51AEB /* ReviewDetailsController.xib */,
-				8D1107310486CEB800E47090 /* reviewApp-Info.plist */,
+				8D1107310486CEB800E47090 /* AppStronomy-Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -2354,9 +2354,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* reviewApp */ = {
+		1D6058900D05DD3D006BFB54 /* AppStronomy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "reviewApp" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "AppStronomy" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -2366,9 +2366,9 @@
 			);
 			dependencies = (
 			);
-			name = reviewApp;
+			name = AppStronomy;
 			productName = reviewApp;
-			productReference = 1D6058910D05DD3D006BFB54 /* reviewApp.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* AppStronomy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2391,7 +2391,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* reviewApp */,
+				1D6058900D05DD3D006BFB54 /* AppStronomy */,
 			);
 		};
 /* End PBXProject section */
@@ -3063,14 +3063,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shiny Frog";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = reviewApp_Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				INFOPLIST_FILE = "reviewApp-Info.plist";
-				PRODUCT_NAME = reviewApp;
+				INFOPLIST_FILE = "AppStronomy-Info.plist";
+				PRODUCT_NAME = AppStronomy;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D944068D-7136-4A0E-B0FD-883A3FD4314B";
 			};
 			name = Debug;
 		};
@@ -3078,12 +3080,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shiny Frog";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = reviewApp_Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				INFOPLIST_FILE = "reviewApp-Info.plist";
-				PRODUCT_NAME = reviewApp;
+				INFOPLIST_FILE = "AppStronomy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = AppStronomy;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D944068D-7136-4A0E-B0FD-883A3FD4314B";
+				SDKROOT = iphoneos4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -3125,8 +3131,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = reviewApp_Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				INFOPLIST_FILE = "reviewApp-Info.plist";
-				PRODUCT_NAME = reviewApp;
+				INFOPLIST_FILE = "AppStronomy-Info.plist";
+				PRODUCT_NAME = AppStronomy;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D944068D-7136-4A0E-B0FD-883A3FD4314B";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = distribution;
@@ -3163,7 +3170,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "reviewApp" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "AppStronomy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
