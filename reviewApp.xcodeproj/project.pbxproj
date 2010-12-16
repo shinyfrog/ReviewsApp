@@ -27,6 +27,10 @@
 		9F0A991112747CE200928E4D /* ReviewDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A991012747CE200928E4D /* ReviewDetailsController.m */; };
 		9F0A991E1274800300928E4D /* ReviewsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A991D1274800300928E4D /* ReviewsManager.m */; };
 		9F0A9CA512758C4A00928E4D /* StoreSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A9CA412758C4A00928E4D /* StoreSelectionController.m */; };
+		9F0B12E612B8FC6100994085 /* SearchAppViewControllerPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B12E512B8FC6100994085 /* SearchAppViewControllerPad.m */; };
+		9F0B134612B904CB00994085 /* StoreSelectionControllerPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B134512B904CB00994085 /* StoreSelectionControllerPad.m */; };
+		9F0B143412B9225200994085 /* AppDetailsControllerPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B143312B9225200994085 /* AppDetailsControllerPad.m */; };
+		9F0B149912BA09ED00994085 /* ReviewsControllerPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B149812BA09ED00994085 /* ReviewsControllerPad.m */; };
 		9F25B1FB126EDC490012E5CF /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F25B1E4126EDC490012E5CF /* CXMLDocument_CreationExtensions.m */; };
 		9F25B1FC126EDC490012E5CF /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F25B1E6126EDC490012E5CF /* CXMLNode_CreationExtensions.m */; };
 		9F25B1FD126EDC490012E5CF /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F25B1E8126EDC490012E5CF /* CXMLDocument.m */; };
@@ -61,6 +65,8 @@
 		9F25B377126EF5B20012E5CF /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F25B36A126EF5B20012E5CF /* CJSONScanner.m */; };
 		9F25B378126EF5B20012E5CF /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F25B36C126EF5B20012E5CF /* CJSONSerializer.m */; };
 		9F25B379126EF5B20012E5CF /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F25B36E126EF5B20012E5CF /* CSerializedJSONData.m */; };
+		9F6A6D6212B7C899009D3C05 /* reviewAppIpadDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6A6D6112B7C899009D3C05 /* reviewAppIpadDelegate.m */; };
+		9F6A6E7E12B7DA14009D3C05 /* RootViewControllerPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6A6E7D12B7DA14009D3C05 /* RootViewControllerPad.m */; };
 		9F7017811279852000B51AEB /* UINavigationBar+BackgroundImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7017801279852000B51AEB /* UINavigationBar+BackgroundImage.m */; };
 		9F7017A1127985E800B51AEB /* AppDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F70179A127985E800B51AEB /* AppDetailsController.xib */; };
 		9F7017A2127985E800B51AEB /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F70179B127985E800B51AEB /* MainWindow.xib */; };
@@ -632,6 +638,16 @@
 		9FDF1D3F129AE4EA0010F921 /* _AppStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDF1D3E129AE4EA0010F921 /* _AppStore.m */; };
 		9FDF1D41129AE4EB0010F921 /* _Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDF1D40129AE4EA0010F921 /* _Review.m */; };
 		9FDF1D43129AE4EB0010F921 /* _Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDF1D42129AE4EB0010F921 /* _Store.m */; };
+		9FE04F0B12BA549A00D83E00 /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE04F0612BA549A00D83E00 /* MGSplitCornersView.m */; };
+		9FE04F0C12BA549A00D83E00 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE04F0812BA549A00D83E00 /* MGSplitDividerView.m */; };
+		9FE04F0D12BA549A00D83E00 /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE04F0A12BA549A00D83E00 /* MGSplitViewController.m */; };
+		9FE050B912BA86E500D83E00 /* AppDetailsControllerPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE050B712BA86E500D83E00 /* AppDetailsControllerPad.xib */; };
+		9FE050BA12BA86E500D83E00 /* MainWindow_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE050B812BA86E500D83E00 /* MainWindow_ipad.xib */; };
+		9FE050BF12BA871000D83E00 /* ReviewsControllerPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE050BB12BA871000D83E00 /* ReviewsControllerPad.xib */; };
+		9FE050C012BA871000D83E00 /* RootViewControllerPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE050BC12BA871000D83E00 /* RootViewControllerPad.xib */; };
+		9FE050C112BA871000D83E00 /* SearchAppViewControllerPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE050BD12BA871000D83E00 /* SearchAppViewControllerPad.xib */; };
+		9FE050C212BA871000D83E00 /* StoreSelectionControllerPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE050BE12BA871000D83E00 /* StoreSelectionControllerPad.xib */; };
+		9FE050C512BA873500D83E00 /* PullToRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE050C412BA873500D83E00 /* PullToRefreshTableViewController.m */; };
 		9FEAB35B127AB7D300C863A0 /* UIImage+pngThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEAB35A127AB7D300C863A0 /* UIImage+pngThumb.m */; };
 		9FEAB3F0127AC8C500C863A0 /* halfStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEAB3EE127AC8C500C863A0 /* halfStar.png */; };
 		9FEAB3F1127AC8C500C863A0 /* halfStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEAB3EF127AC8C500C863A0 /* halfStar@2x.png */; };
@@ -692,6 +708,14 @@
 		9F0A991D1274800300928E4D /* ReviewsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewsManager.m; sourceTree = "<group>"; };
 		9F0A9CA312758C4A00928E4D /* StoreSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreSelectionController.h; sourceTree = "<group>"; };
 		9F0A9CA412758C4A00928E4D /* StoreSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreSelectionController.m; sourceTree = "<group>"; };
+		9F0B12E412B8FC6100994085 /* SearchAppViewControllerPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchAppViewControllerPad.h; sourceTree = "<group>"; };
+		9F0B12E512B8FC6100994085 /* SearchAppViewControllerPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAppViewControllerPad.m; sourceTree = "<group>"; };
+		9F0B134412B904CB00994085 /* StoreSelectionControllerPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreSelectionControllerPad.h; sourceTree = "<group>"; };
+		9F0B134512B904CB00994085 /* StoreSelectionControllerPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreSelectionControllerPad.m; sourceTree = "<group>"; };
+		9F0B143212B9225200994085 /* AppDetailsControllerPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDetailsControllerPad.h; sourceTree = "<group>"; };
+		9F0B143312B9225200994085 /* AppDetailsControllerPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDetailsControllerPad.m; sourceTree = "<group>"; };
+		9F0B149712BA09ED00994085 /* ReviewsControllerPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewsControllerPad.h; sourceTree = "<group>"; };
+		9F0B149812BA09ED00994085 /* ReviewsControllerPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewsControllerPad.m; sourceTree = "<group>"; };
 		9F25B1E3126EDC490012E5CF /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
 		9F25B1E4126EDC490012E5CF /* CXMLDocument_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_CreationExtensions.m; sourceTree = "<group>"; };
 		9F25B1E5126EDC490012E5CF /* CXMLNode_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_CreationExtensions.h; sourceTree = "<group>"; };
@@ -761,6 +785,10 @@
 		9F25B36D126EF5B20012E5CF /* CSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSerializedJSONData.h; sourceTree = "<group>"; };
 		9F25B36E126EF5B20012E5CF /* CSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSerializedJSONData.m; sourceTree = "<group>"; };
 		9F30F8A01271DCE5001DA1A9 /* models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = models.h; sourceTree = "<group>"; };
+		9F6A6D6012B7C899009D3C05 /* reviewAppIpadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewAppIpadDelegate.h; sourceTree = "<group>"; };
+		9F6A6D6112B7C899009D3C05 /* reviewAppIpadDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewAppIpadDelegate.m; sourceTree = "<group>"; };
+		9F6A6E7C12B7DA14009D3C05 /* RootViewControllerPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewControllerPad.h; sourceTree = "<group>"; };
+		9F6A6E7D12B7DA14009D3C05 /* RootViewControllerPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewControllerPad.m; sourceTree = "<group>"; };
 		9F70177F1279852000B51AEB /* UINavigationBar+BackgroundImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+BackgroundImage.h"; sourceTree = "<group>"; };
 		9F7017801279852000B51AEB /* UINavigationBar+BackgroundImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+BackgroundImage.m"; sourceTree = "<group>"; };
 		9F70179A127985E800B51AEB /* AppDetailsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AppDetailsController.xib; path = Resources/AppDetailsController.xib; sourceTree = "<group>"; };
@@ -1352,6 +1380,20 @@
 		9FDF1D45129AE4EC0010F921 /* _AppStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _AppStore.h; sourceTree = "<group>"; };
 		9FDF1D46129AE4EC0010F921 /* _Review.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _Review.h; sourceTree = "<group>"; };
 		9FDF1D47129AE4EC0010F921 /* _Store.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _Store.h; sourceTree = "<group>"; };
+		9FE04F0512BA549A00D83E00 /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSplitCornersView.h; path = MGSplitView/MGSplitCornersView.h; sourceTree = "<group>"; };
+		9FE04F0612BA549A00D83E00 /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSplitCornersView.m; path = MGSplitView/MGSplitCornersView.m; sourceTree = "<group>"; };
+		9FE04F0712BA549A00D83E00 /* MGSplitDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSplitDividerView.h; path = MGSplitView/MGSplitDividerView.h; sourceTree = "<group>"; };
+		9FE04F0812BA549A00D83E00 /* MGSplitDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSplitDividerView.m; path = MGSplitView/MGSplitDividerView.m; sourceTree = "<group>"; };
+		9FE04F0912BA549A00D83E00 /* MGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSplitViewController.h; path = MGSplitView/MGSplitViewController.h; sourceTree = "<group>"; };
+		9FE04F0A12BA549A00D83E00 /* MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSplitViewController.m; path = MGSplitView/MGSplitViewController.m; sourceTree = "<group>"; };
+		9FE050B712BA86E500D83E00 /* AppDetailsControllerPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AppDetailsControllerPad.xib; path = Resources/AppDetailsControllerPad.xib; sourceTree = "<group>"; };
+		9FE050B812BA86E500D83E00 /* MainWindow_ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow_ipad.xib; path = Resources/MainWindow_ipad.xib; sourceTree = "<group>"; };
+		9FE050BB12BA871000D83E00 /* ReviewsControllerPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ReviewsControllerPad.xib; path = Resources/ReviewsControllerPad.xib; sourceTree = "<group>"; };
+		9FE050BC12BA871000D83E00 /* RootViewControllerPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RootViewControllerPad.xib; path = Resources/RootViewControllerPad.xib; sourceTree = "<group>"; };
+		9FE050BD12BA871000D83E00 /* SearchAppViewControllerPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchAppViewControllerPad.xib; path = Resources/SearchAppViewControllerPad.xib; sourceTree = "<group>"; };
+		9FE050BE12BA871000D83E00 /* StoreSelectionControllerPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StoreSelectionControllerPad.xib; path = Resources/StoreSelectionControllerPad.xib; sourceTree = "<group>"; };
+		9FE050C312BA873500D83E00 /* PullToRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullToRefreshTableViewController.h; path = Classes/PullToRefreshTableViewController.h; sourceTree = "<group>"; };
+		9FE050C412BA873500D83E00 /* PullToRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullToRefreshTableViewController.m; path = Classes/PullToRefreshTableViewController.m; sourceTree = "<group>"; };
 		9FEAB359127AB7D300C863A0 /* UIImage+pngThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+pngThumb.h"; sourceTree = "<group>"; };
 		9FEAB35A127AB7D300C863A0 /* UIImage+pngThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+pngThumb.m"; sourceTree = "<group>"; };
 		9FEAB3EE127AC8C500C863A0 /* halfStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = halfStar.png; path = Resources/halfStar.png; sourceTree = "<group>"; };
@@ -1414,14 +1456,7 @@
 				9F7017751279851800B51AEB /* Categories */,
 				9F0A9E081275B58C00928E4D /* dialogs */,
 				9F0A991B12747FE000928E4D /* managers */,
-				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
-				28C286E00D94DF7D0034E888 /* RootViewController.m */,
-				9F0A990912747C8700928E4D /* AppDetailsController.h */,
-				9F0A990A12747C8700928E4D /* AppDetailsController.m */,
-				9F0A990C12747CD500928E4D /* StoreReviewsController.h */,
-				9F0A990D12747CD500928E4D /* StoreReviewsController.m */,
-				9F0A990F12747CE200928E4D /* ReviewDetailsController.h */,
-				9F0A991012747CE200928E4D /* ReviewDetailsController.m */,
+				9F6A6D9D12B7CA8B009D3C05 /* Controllers */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1437,6 +1472,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				9FE04F0312BA549000D83E00 /* MGSplitView */,
 				9FB6F57A127EB87100B824DB /* pull to refresh */,
 				9F30F8911271DBF1001DA1A9 /* model */,
 				9F25B355126EF5B20012E5CF /* touchJSON */,
@@ -1444,6 +1480,7 @@
 				9F25B1E1126EDC490012E5CF /* touchXML */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				9F6A6D5212B7C56F009D3C05 /* Resources iPad */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -1545,6 +1582,13 @@
 				9F0A9CA412758C4A00928E4D /* StoreSelectionController.m */,
 			);
 			name = dialogs;
+			sourceTree = "<group>";
+		};
+		9F0B149612BA09C500994085 /* ipad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ipad;
 			sourceTree = "<group>";
 		};
 		9F25B1E1126EDC490012E5CF /* touchXML */ = {
@@ -1681,6 +1725,61 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		9F6A6D5212B7C56F009D3C05 /* Resources iPad */ = {
+			isa = PBXGroup;
+			children = (
+				9FE050BB12BA871000D83E00 /* ReviewsControllerPad.xib */,
+				9FE050BC12BA871000D83E00 /* RootViewControllerPad.xib */,
+				9FE050BD12BA871000D83E00 /* SearchAppViewControllerPad.xib */,
+				9FE050BE12BA871000D83E00 /* StoreSelectionControllerPad.xib */,
+				9FE050B712BA86E500D83E00 /* AppDetailsControllerPad.xib */,
+				9FE050B812BA86E500D83E00 /* MainWindow_ipad.xib */,
+			);
+			name = "Resources iPad";
+			sourceTree = "<group>";
+		};
+		9F6A6D5F12B7C869009D3C05 /* ipad */ = {
+			isa = PBXGroup;
+			children = (
+				9F6A6D6012B7C899009D3C05 /* reviewAppIpadDelegate.h */,
+				9F6A6D6112B7C899009D3C05 /* reviewAppIpadDelegate.m */,
+			);
+			name = ipad;
+			sourceTree = "<group>";
+		};
+		9F6A6D9D12B7CA8B009D3C05 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9F6A6E7B12B7D9FB009D3C05 /* ipad */,
+				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
+				28C286E00D94DF7D0034E888 /* RootViewController.m */,
+				9F0A990912747C8700928E4D /* AppDetailsController.h */,
+				9F0A990A12747C8700928E4D /* AppDetailsController.m */,
+				9F0A990C12747CD500928E4D /* StoreReviewsController.h */,
+				9F0A990D12747CD500928E4D /* StoreReviewsController.m */,
+				9F0A990F12747CE200928E4D /* ReviewDetailsController.h */,
+				9F0A991012747CE200928E4D /* ReviewDetailsController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9F6A6E7B12B7D9FB009D3C05 /* ipad */ = {
+			isa = PBXGroup;
+			children = (
+				9F6A6E7C12B7DA14009D3C05 /* RootViewControllerPad.h */,
+				9F6A6E7D12B7DA14009D3C05 /* RootViewControllerPad.m */,
+				9F0B12E412B8FC6100994085 /* SearchAppViewControllerPad.h */,
+				9F0B12E512B8FC6100994085 /* SearchAppViewControllerPad.m */,
+				9F0B134412B904CB00994085 /* StoreSelectionControllerPad.h */,
+				9F0B134512B904CB00994085 /* StoreSelectionControllerPad.m */,
+				9F0B143212B9225200994085 /* AppDetailsControllerPad.h */,
+				9F0B143312B9225200994085 /* AppDetailsControllerPad.m */,
+				9F0B149712BA09ED00994085 /* ReviewsControllerPad.h */,
+				9F0B149812BA09ED00994085 /* ReviewsControllerPad.m */,
+			);
+			name = ipad;
+			sourceTree = "<group>";
+		};
 		9F7017751279851800B51AEB /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -1778,6 +1877,7 @@
 		9F70183D12798A1600B51AEB /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				9F0B149612BA09C500994085 /* ipad */,
 				9FEAB64F127B171800C863A0 /* SFUIBadgeView.h */,
 				9FEAB650127B171800C863A0 /* SFUIBadgeView.m */,
 				9F70183E12798A2B00B51AEB /* ApplicationCell.h */,
@@ -2317,6 +2417,7 @@
 		9FB6F331127DC68D00B824DB /* delegate */ = {
 			isa = PBXGroup;
 			children = (
+				9F6A6D5F12B7C869009D3C05 /* ipad */,
 				1D3623240D0F684500981E51 /* reviewAppAppDelegate.h */,
 				1D3623250D0F684500981E51 /* reviewAppAppDelegate.m */,
 			);
@@ -2341,6 +2442,8 @@
 		9FB6F57A127EB87100B824DB /* pull to refresh */ = {
 			isa = PBXGroup;
 			children = (
+				9FE050C312BA873500D83E00 /* PullToRefreshTableViewController.h */,
+				9FE050C412BA873500D83E00 /* PullToRefreshTableViewController.m */,
 				9FB6F9BB127F2FEE00B824DB /* PullToRefreshViewController.h */,
 				9FB6F9BC127F2FEE00B824DB /* PullToRefreshViewController.m */,
 				9FB6F57F127EB89100B824DB /* EGORefreshTableHeaderView.h */,
@@ -2349,6 +2452,19 @@
 				9FB6F57D127EB88800B824DB /* _RootViewController.m */,
 			);
 			name = "pull to refresh";
+			sourceTree = "<group>";
+		};
+		9FE04F0312BA549000D83E00 /* MGSplitView */ = {
+			isa = PBXGroup;
+			children = (
+				9FE04F0512BA549A00D83E00 /* MGSplitCornersView.h */,
+				9FE04F0612BA549A00D83E00 /* MGSplitCornersView.m */,
+				9FE04F0712BA549A00D83E00 /* MGSplitDividerView.h */,
+				9FE04F0812BA549A00D83E00 /* MGSplitDividerView.m */,
+				9FE04F0912BA549A00D83E00 /* MGSplitViewController.h */,
+				9FE04F0A12BA549A00D83E00 /* MGSplitViewController.m */,
+			);
+			name = MGSplitView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2981,6 +3097,12 @@
 				0CDEF92D128402DB00C5D169 /* icon@2x.png in Resources */,
 				0CC69093128459E800F4142C /* icon.png in Resources */,
 				9F0A06581286F3BC00ADF3AB /* Entitlements.plist in Resources */,
+				9FE050B912BA86E500D83E00 /* AppDetailsControllerPad.xib in Resources */,
+				9FE050BA12BA86E500D83E00 /* MainWindow_ipad.xib in Resources */,
+				9FE050BF12BA871000D83E00 /* ReviewsControllerPad.xib in Resources */,
+				9FE050C012BA871000D83E00 /* RootViewControllerPad.xib in Resources */,
+				9FE050C112BA871000D83E00 /* SearchAppViewControllerPad.xib in Resources */,
+				9FE050C212BA871000D83E00 /* StoreSelectionControllerPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3053,6 +3175,16 @@
 				9FDF1D3F129AE4EA0010F921 /* _AppStore.m in Sources */,
 				9FDF1D41129AE4EB0010F921 /* _Review.m in Sources */,
 				9FDF1D43129AE4EB0010F921 /* _Store.m in Sources */,
+				9F6A6D6212B7C899009D3C05 /* reviewAppIpadDelegate.m in Sources */,
+				9F6A6E7E12B7DA14009D3C05 /* RootViewControllerPad.m in Sources */,
+				9F0B12E612B8FC6100994085 /* SearchAppViewControllerPad.m in Sources */,
+				9F0B134612B904CB00994085 /* StoreSelectionControllerPad.m in Sources */,
+				9F0B143412B9225200994085 /* AppDetailsControllerPad.m in Sources */,
+				9F0B149912BA09ED00994085 /* ReviewsControllerPad.m in Sources */,
+				9FE04F0B12BA549A00D83E00 /* MGSplitCornersView.m in Sources */,
+				9FE04F0C12BA549A00D83E00 /* MGSplitDividerView.m in Sources */,
+				9FE04F0D12BA549A00D83E00 /* MGSplitViewController.m in Sources */,
+				9FE050C512BA873500D83E00 /* PullToRefreshTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3063,16 +3195,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shiny Frog";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Danilo Bonardi (Y2N7M4V839)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = reviewApp_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "AppStronomy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = AppStronomy;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D944068D-7136-4A0E-B0FD-883A3FD4314B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7184B281-3017-4BEA-BAF6-FD8BF268FE7B";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -3086,10 +3221,11 @@
 				GCC_PREFIX_HEADER = reviewApp_Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "AppStronomy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = AppStronomy;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D944068D-7136-4A0E-B0FD-883A3FD4314B";
 				SDKROOT = iphoneos4.2;
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -3132,8 +3268,9 @@
 				GCC_PREFIX_HEADER = reviewApp_Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "AppStronomy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = AppStronomy;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D944068D-7136-4A0E-B0FD-883A3FD4314B";
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = distribution;

@@ -322,8 +322,15 @@
         }
     }
     
-    [father dismissModalViewControllerAnimated:YES];
+    [self addStoresEnded];
 
+}
+
+/* needed for the iPad subClass */
+- (void) addStoresEnded {
+    
+    [father dismissModalViewControllerAnimated:YES];
+    
 }
 
 #pragma mark -
