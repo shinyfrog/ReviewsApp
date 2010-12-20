@@ -38,6 +38,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [super viewWillAppear:animated];
+
 }
 
 - (void) addStoresEnded {
@@ -45,11 +46,10 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 
     reviewAppIpadDelegate* app = [[UIApplication sharedApplication] delegate];
-    UINavigationController* leftNav = [app.spliView.viewControllers objectAtIndex:0];
 
-    //[leftNav popToRootViewControllerAnimated:YES];
+    //[app.leftNav popToRootViewControllerAnimated:YES];
     
-    RootViewControllerPad* aViewController = (RootViewControllerPad*)leftNav.topViewController;
+    RootViewControllerPad* aViewController = (RootViewControllerPad*)app.leftNav.topViewController;
     [aViewController viewWillAppear:NO];
 
 }

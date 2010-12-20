@@ -65,6 +65,8 @@
 		9F25B377126EF5B20012E5CF /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F25B36A126EF5B20012E5CF /* CJSONScanner.m */; };
 		9F25B378126EF5B20012E5CF /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F25B36C126EF5B20012E5CF /* CJSONSerializer.m */; };
 		9F25B379126EF5B20012E5CF /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F25B36E126EF5B20012E5CF /* CSerializedJSONData.m */; };
+		9F3B6B0D12BF5617003E9F52 /* ReviewCellPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3B6B0C12BF5617003E9F52 /* ReviewCellPad.m */; };
+		9F3B6B1012BF5688003E9F52 /* ReviewCellPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3B6B0F12BF5688003E9F52 /* ReviewCellPad.xib */; };
 		9F6A6D6212B7C899009D3C05 /* reviewAppIpadDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6A6D6112B7C899009D3C05 /* reviewAppIpadDelegate.m */; };
 		9F6A6E7E12B7DA14009D3C05 /* RootViewControllerPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6A6E7D12B7DA14009D3C05 /* RootViewControllerPad.m */; };
 		9F7017811279852000B51AEB /* UINavigationBar+BackgroundImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7017801279852000B51AEB /* UINavigationBar+BackgroundImage.m */; };
@@ -785,6 +787,9 @@
 		9F25B36D126EF5B20012E5CF /* CSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSerializedJSONData.h; sourceTree = "<group>"; };
 		9F25B36E126EF5B20012E5CF /* CSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSerializedJSONData.m; sourceTree = "<group>"; };
 		9F30F8A01271DCE5001DA1A9 /* models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = models.h; sourceTree = "<group>"; };
+		9F3B6B0B12BF5617003E9F52 /* ReviewCellPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewCellPad.h; sourceTree = "<group>"; };
+		9F3B6B0C12BF5617003E9F52 /* ReviewCellPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewCellPad.m; sourceTree = "<group>"; };
+		9F3B6B0F12BF5688003E9F52 /* ReviewCellPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCellPad.xib; sourceTree = "<group>"; };
 		9F6A6D6012B7C899009D3C05 /* reviewAppIpadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewAppIpadDelegate.h; sourceTree = "<group>"; };
 		9F6A6D6112B7C899009D3C05 /* reviewAppIpadDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewAppIpadDelegate.m; sourceTree = "<group>"; };
 		9F6A6E7C12B7DA14009D3C05 /* RootViewControllerPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewControllerPad.h; sourceTree = "<group>"; };
@@ -1587,6 +1592,8 @@
 		9F0B149612BA09C500994085 /* ipad */ = {
 			isa = PBXGroup;
 			children = (
+				9F3B6B0B12BF5617003E9F52 /* ReviewCellPad.h */,
+				9F3B6B0C12BF5617003E9F52 /* ReviewCellPad.m */,
 			);
 			name = ipad;
 			sourceTree = "<group>";
@@ -1734,6 +1741,7 @@
 				9FE050BE12BA871000D83E00 /* StoreSelectionControllerPad.xib */,
 				9FE050B712BA86E500D83E00 /* AppDetailsControllerPad.xib */,
 				9FE050B812BA86E500D83E00 /* MainWindow_ipad.xib */,
+				9F3B6B0F12BF5688003E9F52 /* ReviewCellPad.xib */,
 			);
 			name = "Resources iPad";
 			sourceTree = "<group>";
@@ -3103,6 +3111,7 @@
 				9FE050C012BA871000D83E00 /* RootViewControllerPad.xib in Resources */,
 				9FE050C112BA871000D83E00 /* SearchAppViewControllerPad.xib in Resources */,
 				9FE050C212BA871000D83E00 /* StoreSelectionControllerPad.xib in Resources */,
+				9F3B6B1012BF5688003E9F52 /* ReviewCellPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3185,6 +3194,7 @@
 				9FE04F0C12BA549A00D83E00 /* MGSplitDividerView.m in Sources */,
 				9FE04F0D12BA549A00D83E00 /* MGSplitViewController.m in Sources */,
 				9FE050C512BA873500D83E00 /* PullToRefreshTableViewController.m in Sources */,
+				9F3B6B0D12BF5617003E9F52 /* ReviewCellPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

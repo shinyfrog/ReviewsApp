@@ -8,9 +8,24 @@
 
 #import <Foundation/Foundation.h>
 #import "PullToRefreshTableViewController.h"
+#import "models.h"
 
 @interface ReviewsControllerPad : PullToRefreshTableViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate> {
 
+@private
+    NSFetchedResultsController *fetchedResultsController_;
+
+    AppStore* appStore;
+    App* app;
+    
 }
+
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
+- (void)loadAllReviews;
+
+- (void)loadAllReviewsForApp:(App*)_app;
+
+- (void)loadAllReviewsForAppStore:(AppStore*)_appStore;
 
 @end

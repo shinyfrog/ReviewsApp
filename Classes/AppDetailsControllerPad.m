@@ -90,7 +90,10 @@
     fetchedResultsController_ = nil;
     [self.tableView reloadData];    
     [super viewWillAppear:animated];
-    
+
+    //Set the right data
+    reviewAppIpadDelegate* app = [[UIApplication sharedApplication] delegate];
+    [app.reviewsController loadAllReviewsForApp:self.application];    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -222,16 +225,17 @@
 }
 
 - (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [_tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //[_tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     //AppStore *astore = [[self.application.stores allObjects] objectAtIndex:indexPath.row];
     AppStore *astore = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    if ([astore.reviews count] == 0) { return; }
-    
-    StoreReviewsController* src = [[[StoreReviewsController alloc] initWithNibName:@"StoreReviewsController" bundle:nil store:astore] autorelease];
-    
-    [self.navigationController pushViewController:src animated:YES];
+    //if ([astore.reviews count] == 0) { return; }
+
+    //Set the right data
+    reviewAppIpadDelegate* app = [[UIApplication sharedApplication] delegate];
+    [app.reviewsController loadAllReviewsForAppStore:astore];
+
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath { 

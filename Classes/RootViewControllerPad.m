@@ -35,32 +35,26 @@
 
 - (void)viewDidLoad {
 
-    [super viewDidLoad];
-
-    //[self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.451 green:0.518 blue:0.616 alpha:1.000]];    
-	[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_back.png"] withBackgroundTint:kSCNavigationBarTintColor];
-    
     self.title = @"Applications";
     
-	UIImageView *tableBg = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"table_back.png"]] autorelease];
+    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.451 green:0.518 blue:0.616 alpha:1.000]];    
+	[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_back.png"] withBackgroundTint:kSCNavigationBarTintColor];
     
+    
+	UIImageView *tableBg = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"table_back.png"]] autorelease];
+
 	[self.tableView setBackgroundView:tableBg];
-
-    /*
-    if ([self.fetchedResultsController.fetchedObjects count] == 0) {
-        SearchAppViewController* addAppView = [[[SearchAppViewController alloc] initWithNibName:@"SearchAppViewController" bundle:nil father:self] autorelease];
-
-        UINavigationController *controller = [[[UINavigationController alloc] initWithRootViewController:addAppView] autorelease];
-        [[self navigationController] presentModalViewController:controller animated:NO];
-    }
-    */
 
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButtonArrow.png"]
                                                                     style:self.navigationItem.backBarButtonItem.style
                                                                    target:self.navigationItem.backBarButtonItem.target 
                                                                    action:self.navigationItem.backBarButtonItem.action] autorelease];
     self.navigationItem.backBarButtonItem = backButton;
-
+    
+    //NSLog(NSStringFromCGRect(self.navigationController.view.frame));
+    
+    [super viewDidLoad];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -79,7 +73,13 @@
     fetchedResultsController_ = nil;
     [self fetchedResultsController];
     [self.tableView reloadData];
+    
+    //Set the right data 
+    reviewAppIpadDelegate* app = [[UIApplication sharedApplication] delegate];
+    [app.reviewsController loadAllReviews];
+    
     [super viewWillAppear:animated];
+    
 }
 
 #pragma mark -

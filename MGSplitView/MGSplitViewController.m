@@ -950,7 +950,7 @@
 	if (!_viewControllers) {
 		_viewControllers = [[NSMutableArray alloc] initWithCapacity:2];
 	}
-	
+    
 	NSObject *newMaster = master;
 	if (!newMaster) {
 		newMaster = [NSNull null];

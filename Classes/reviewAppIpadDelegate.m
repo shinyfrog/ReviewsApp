@@ -10,11 +10,10 @@
 #import "SearchAppViewControllerPad.h"
 #import "RootViewControllerPad.h"
 #import "ReviewsManager.h"
-#import "ReviewsControllerPad.h"
 
 @implementation reviewAppIpadDelegate
 
-@synthesize spliView, leftNav, rightNav;
+@synthesize spliView, leftNav, rightNav, reviewsController;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -39,8 +38,11 @@
     self.pullToRefreshQueue = [[[NSOperationQueue alloc] init] autorelease];
     [self.pullToRefreshQueue setMaxConcurrentOperationCount:1];    
 
-    ReviewsControllerPad* foo = [[ReviewsControllerPad alloc] initWithNibName:@"ReviewsControllerPad" bundle:nil];
-    [navigationController pushViewController:foo animated:NO];
+    self.reviewsController = [[[ReviewsControllerPad alloc] initWithNibName:@"ReviewsControllerPad" bundle:nil] autorelease];
+    [self.rightNav pushViewController:reviewsController animated:NO];
+    
+    RootViewControllerPad* root = [[[RootViewControllerPad alloc] initWithNibName:@"RootViewControllerPad" bundle:nil] autorelease];
+    [self.leftNav pushViewController:root animated:NO];
     
     return YES;
 }
