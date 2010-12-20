@@ -135,34 +135,32 @@
 - (void)loadAllReviews {
     app = nil;
     appStore = nil;
-    fetchedResultsController_ = nil;
-    [self fetchedResultsController];
-    [self.tableView reloadData];
-
-    NSIndexPath* top = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView scrollToRowAtIndexPath:top atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [self performSelector:@selector(refresh)];
 }
 
 - (void)loadAllReviewsForApp:(App*)_app {
     app = [_app retain];
     appStore = nil;
-    fetchedResultsController_ = nil;
-    [self fetchedResultsController];
-    [self.tableView reloadData];    
-
-    NSIndexPath* top = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView scrollToRowAtIndexPath:top atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [self performSelector:@selector(refresh)];
 }
 
 - (void)loadAllReviewsForAppStore:(AppStore*)_appStore {
     app = nil;
     appStore = [_appStore retain];
+    [self performSelector:@selector(refresh)];
+}
+
+- (void) refresh {
+    
     fetchedResultsController_ = nil;
     [self fetchedResultsController];
     [self.tableView reloadData];
     
-    NSIndexPath* top = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView scrollToRowAtIndexPath:top atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    if ([self tableView:self.tableView numberOfRowsInSection:0] != 0) {    
+        NSIndexPath* top = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.tableView scrollToRowAtIndexPath:top atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }    
+    
 }
 
 @end

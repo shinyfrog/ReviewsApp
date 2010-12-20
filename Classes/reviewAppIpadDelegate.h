@@ -18,6 +18,8 @@
     IBOutlet UINavigationController* leftNav;
     IBOutlet UINavigationController* rightNav;    
     IBOutlet ReviewsControllerPad* reviewsController;
+    IBOutlet UIImageView* tableShadow;
+    
     
 }
 

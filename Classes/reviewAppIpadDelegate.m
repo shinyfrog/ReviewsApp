@@ -27,9 +27,12 @@
     application.statusBarStyle = UIStatusBarStyleBlackOpaque;
     
     // Add the navigation controller's view to the window and display.
-
-    [window addSubview:spliView.view];
+    
+    
+    
+    [window addSubview:spliView.view];    
     [window makeKeyAndVisible];
+
 
     window.backgroundColor = [UIColor blackColor];
 
@@ -43,6 +46,9 @@
     
     RootViewControllerPad* root = [[[RootViewControllerPad alloc] initWithNibName:@"RootViewControllerPad" bundle:nil] autorelease];
     [self.leftNav pushViewController:root animated:NO];
+    
+    [self.leftNav.view addSubview:tableShadow];
+    tableShadow.frame = CGRectMake(0, 44, 320, 5);
     
     return YES;
 }
