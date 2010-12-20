@@ -28,6 +28,8 @@
     
     UIBarButtonItem* shareButton;
     UIButton* shareButtonInside;
+    
+    NSIndexPath* selectedRow;
 
 }
 
@@ -37,5 +39,7 @@
 - (id) initWithNibName:(NSString*)nibName bundle:(NSBundle *)bundleOrNil application:(App*)_app;
 
 - (IBAction) editStores;
+
+- (IBAction) showAllReviews;
 
 @end

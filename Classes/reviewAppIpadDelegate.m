@@ -53,14 +53,18 @@
         
         [ReviewsManager syncAllApps];
         
-        UINavigationController* nav = (UINavigationController*)[self.spliView.viewControllers objectAtIndex:0];
-        RootViewControllerPad* aViewController = (RootViewControllerPad*)nav.topViewController;
-        [aViewController viewWillAppear:YES];
+        [self performSelectorOnMainThread:@selector(endSyncMainThread) withObject:nil waitUntilDone:YES];
 
     } @catch (NSException * e) {
         SFLog(@"%@", [e description]);
     }
 
+}
+
+- (void) endSyncMainThread {
+    UINavigationController* nav = (UINavigationController*)[self.spliView.viewControllers objectAtIndex:0];
+    RootViewControllerPad* aViewController = (RootViewControllerPad*)nav.topViewController;
+    [aViewController viewWillAppear:YES];    
 }
 
 @end

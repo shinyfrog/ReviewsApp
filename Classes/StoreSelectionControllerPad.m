@@ -22,17 +22,17 @@
     self.title = @"Select the stores";
     
 	//[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_back.png"] withBackgroundTint:[UIColor grayColor]];    
-    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.451 green:0.518 blue:0.616 alpha:1.000]];    
-    
+    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.451 green:0.518 blue:0.616 alpha:1.000]];
+
 	UIImageView *tableBg = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"table_back.png"]] autorelease];
-	[self.tableView setBackgroundView:tableBg];    
-    
-    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButtonArrow.png"] 
+	[self.tableView setBackgroundView:tableBg];
+
+    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButtonArrow.png"]
                                                                     style:self.navigationItem.backBarButtonItem.style
-                                                                   target:self.navigationItem.backBarButtonItem.target 
+                                                                   target:self.navigationItem.backBarButtonItem.target
                                                                    action:self.navigationItem.backBarButtonItem.action] autorelease];
     self.navigationItem.backBarButtonItem = backButton;
-    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -48,7 +48,7 @@
     reviewAppIpadDelegate* app = [[UIApplication sharedApplication] delegate];
 
     //[app.leftNav popToRootViewControllerAnimated:YES];
-    
+
     RootViewControllerPad* aViewController = (RootViewControllerPad*)app.leftNav.topViewController;
     [aViewController viewWillAppear:NO];
 

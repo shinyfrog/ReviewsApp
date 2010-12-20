@@ -78,14 +78,18 @@
     @try {
 
         [ReviewsManager syncAllApps];
-        RootViewController* aviewController = (RootViewController*)self.navigationController.topViewController;
-        aviewController.fetchedResultsController = nil;
-        [aviewController.tableView reloadData];
+        [self performSelectorOnMainThread:@selector(endSyncMainThread) withObject:nil waitUntilDone:YES];
 
     } @catch (NSException * e) {
         SFLog(@"%@", [e description]);
     }
 
+}
+
+- (void) endSyncMainThread {
+    RootViewController* aviewController = (RootViewController*)self.navigationController.topViewController;
+    aviewController.fetchedResultsController = nil;
+    [aviewController.tableView reloadData];   
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

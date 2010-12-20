@@ -8,6 +8,7 @@
 
 #import "SearchAppViewControllerPad.h"
 #import "StoreSelectionControllerPad.h"
+#import "reviewAppIpadDelegate.h"
 
 @implementation SearchAppViewControllerPad
 
@@ -50,8 +51,20 @@
                                                                    action:self.navigationItem.backBarButtonItem.action] autorelease];
     self.navigationItem.backBarButtonItem = backButton;
     
-    
     self.navigationItem.hidesBackButton = YES;
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    
+    reviewAppIpadDelegate* app = (reviewAppIpadDelegate*)[[UIApplication sharedApplication] delegate];
+    RootViewControllerPad* root = [app.leftNav.viewControllers objectAtIndex:0];
+    
+    if ([root tableView:(UITableView*)root.view numberOfRowsInSection:0] != 0) {
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelOperation)];
+        self.navigationItem.rightBarButtonItem = addButton;
+        [addButton release];
+    }
+    
 }
 
 @end

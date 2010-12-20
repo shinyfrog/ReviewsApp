@@ -135,8 +135,8 @@
         }
         
     } else {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;        
         [NSException raise:@"Application Id Not Valid" format:@"Application Id Not Valid"];
-        [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
     }
     
     SFLog(@"Stop");

@@ -322,7 +322,7 @@
         }
     }
     
-    [self addStoresEnded];
+    [self performSelectorOnMainThread:@selector(addStoresEnded) withObject:nil waitUntilDone:YES];
 
 }
 

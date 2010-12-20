@@ -91,8 +91,7 @@
 
 
     NSArray *sortDescriptors = [[[NSArray alloc] initWithObjects:sortDescriptor, nil] autorelease];
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
+    NSArray *sortDescriptors2 = [[[NSArray alloc] initWithObjects:sortDescriptor, sortDescriptor2, nil] autorelease];    
     
     if (appStore != nil) {
         
@@ -100,7 +99,7 @@
                                   appStore.app.appId, appStore.store.storeID];
         [fetchRequest setPredicate:predicate];
 
-        NSArray *sortDescriptors2 = [[[NSArray alloc] initWithObjects:sortDescriptor, sortDescriptor2, nil] autorelease];
+
         [fetchRequest setSortDescriptors:sortDescriptors2];
         
     } else if (app != nil) {
@@ -108,7 +107,11 @@
         NSPredicate* predicate = [NSPredicate predicateWithFormat:@"appstore.app.appId = %@", 
                                   app.appId];
         [fetchRequest setPredicate:predicate];
+        [fetchRequest setSortDescriptors:sortDescriptors];        
         
+    } else {
+
+        [fetchRequest setSortDescriptors:sortDescriptors];        
         
     }
 
@@ -135,6 +138,9 @@
     fetchedResultsController_ = nil;
     [self fetchedResultsController];
     [self.tableView reloadData];
+
+    NSIndexPath* top = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView scrollToRowAtIndexPath:top atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)loadAllReviewsForApp:(App*)_app {
@@ -143,6 +149,9 @@
     fetchedResultsController_ = nil;
     [self fetchedResultsController];
     [self.tableView reloadData];    
+
+    NSIndexPath* top = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView scrollToRowAtIndexPath:top atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)loadAllReviewsForAppStore:(AppStore*)_appStore {
@@ -151,6 +160,9 @@
     fetchedResultsController_ = nil;
     [self fetchedResultsController];
     [self.tableView reloadData];
+    
+    NSIndexPath* top = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView scrollToRowAtIndexPath:top atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 @end

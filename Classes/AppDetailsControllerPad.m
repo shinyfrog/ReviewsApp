@@ -32,7 +32,8 @@
     }
     
     self.application = _app;
-    
+    selectedRow = nil;
+
     return self;
 }
 
@@ -229,9 +230,17 @@
     
     //AppStore *astore = [[self.application.stores allObjects] objectAtIndex:indexPath.row];
     AppStore *astore = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    selectedRow = [indexPath copy];
     
     //if ([astore.reviews count] == 0) { return; }
-
+    
+    AppStoreCell *cell = (AppStoreCell*)[_tableView cellForRowAtIndexPath:indexPath];
+    cell.badge.hidden = YES;
+    
+    for (Review* rev in astore.reviews) {
+        rev.viewedValue = YES;
+    }
+    
     //Set the right data
     reviewAppIpadDelegate* app = [[UIApplication sharedApplication] delegate];
     [app.reviewsController loadAllReviewsForAppStore:astore];
@@ -294,6 +303,19 @@
                                                                                        appId:self.application.appId] autorelease];
         
     [app.rightNav pushViewController:ssc animated:animated];
+    
+}
+
+- (IBAction) showAllReviews {
+    
+    if (selectedRow != nil) {
+        [(UITableView*)self.view deselectRowAtIndexPath:selectedRow animated:YES];
+    } 
+    
+    selectedRow = nil;
+    
+    reviewAppIpadDelegate* app = [[UIApplication sharedApplication] delegate];
+    [app.reviewsController loadAllReviewsForApp:self.application];      
     
 }
 
@@ -387,6 +409,8 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
+    [shareButtonInside addTarget:self action:@selector(actions:) forControlEvents:UIControlEventTouchUpInside];    
+    
     if ( buttonIndex == 0) {
         
         for (AppStore* astore in self.application.stores) {
@@ -402,9 +426,7 @@
     } else if (buttonIndex == 2) { //clipboard
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
         pasteboard.string = self.application.link;
-    }  else if (buttonIndex == 3) {
-        [shareButtonInside addTarget:self action:@selector(actions:) forControlEvents:UIControlEventTouchUpInside];
-    }
+    } 
 
 }
 

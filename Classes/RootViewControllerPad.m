@@ -51,7 +51,11 @@
                                                                    action:self.navigationItem.backBarButtonItem.action] autorelease];
     self.navigationItem.backBarButtonItem = backButton;
     
-    //NSLog(NSStringFromCGRect(self.navigationController.view.frame));
+    if ([self.fetchedResultsController.fetchedObjects count] == 0) {
+        reviewAppIpadDelegate* app = [[UIApplication sharedApplication] delegate];
+        SearchAppViewControllerPad* addAppView = [[[SearchAppViewControllerPad alloc] initWithNibName:@"SearchAppViewControllerPad" bundle:nil father:self] autorelease];
+        [app.rightNav pushViewController:addAppView animated:NO];
+    }
     
     [super viewDidLoad];
     
@@ -212,6 +216,9 @@
                           withRowAnimation:UITableViewRowAnimationFade];
         
         [_tableView endUpdates];
+        
+        _tableView.editing = NO;
+        
     }   
 }
 
