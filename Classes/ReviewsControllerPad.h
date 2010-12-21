@@ -18,6 +18,8 @@
     AppStore* appStore;
     App* app;
     
+    NSIndexPath* cellToExpand;
+    
 }
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;

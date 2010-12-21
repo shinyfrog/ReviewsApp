@@ -33,7 +33,8 @@
 - (void) viewDidLoad {
 
     self.navigationController.navigationBarHidden = YES;
-
+    cellToExpand = nil;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -54,7 +55,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)_tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 131;	
+    
+    if (indexPath == cellToExpand) {
+        return 200;
+    }
+    
+	return 131;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -71,6 +77,17 @@
     cell.reviewComment.text = review.message;
     
     return cell;
+}
+
+#pragma mark -
+#pragma mark Table view delegate
+
+- (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //[_tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    cellToExpand = [indexPath copy];
+    [_tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:cellToExpand] withRowAnimation:UITableViewRowAnimationNone];
+    
 }
 
 #pragma mark -
