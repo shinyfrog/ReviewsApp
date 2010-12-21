@@ -3133,7 +3133,6 @@
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "AppStronomy-Info.plist";
 				PRODUCT_NAME = AppStronomy;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D944068D-7136-4A0E-B0FD-883A3FD4314B";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = distribution;
