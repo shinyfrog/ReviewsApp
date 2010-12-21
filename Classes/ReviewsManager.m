@@ -60,10 +60,15 @@
 
             NSString *versionDateBlock = [[[elem nodesForXPath:@"t:HBoxView/t:TextView/t:SetFontStyle" namespaceMappings:mappings error:nil] objectAtIndex:1] stringValue];
             NSArray *component = [versionDateBlock componentsSeparatedByString:@"\n"];
-            if ([component count] > 2) {
-                date = [[component objectAtIndex:8] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                version = [[component objectAtIndex:5] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            }            
+            
+            @try {
+                if ([component count] > 2) {
+                    date = [[component objectAtIndex:8] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                    version = [[component objectAtIndex:5] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                }
+            } @catch (NSException * e) {
+                SFLog(@"Store %@ - unble to catch date/version", as.store.storeName);
+            }
             
             [ReviewsManager addReviewWithTitle:title 
                                           body:body 
@@ -130,8 +135,8 @@
         }
         
     } else {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;        
         [NSException raise:@"Application Id Not Valid" format:@"Application Id Not Valid"];
-        [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
     }
     
     SFLog(@"Stop");

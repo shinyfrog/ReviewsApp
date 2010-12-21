@@ -40,6 +40,8 @@
 
 - (id) initWithNibName:(NSString*)nibName bundle:(NSBundle *)bundleOrNil father:(id)_father appId:(NSString*)appid;
 
+- (void) addStoresEnded;
+
 @property (nonatomic, retain) NSArray* availableStores;
 @property (nonatomic, retain) NSMutableArray* selectedStores;
 @property (nonatomic, retain) NSString* appId;

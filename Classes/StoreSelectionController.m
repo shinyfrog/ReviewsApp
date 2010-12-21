@@ -322,8 +322,15 @@
         }
     }
     
-    [father dismissModalViewControllerAnimated:YES];
+    [self performSelectorOnMainThread:@selector(addStoresEnded) withObject:nil waitUntilDone:YES];
 
+}
+
+/* needed for the iPad subClass */
+- (void) addStoresEnded {
+    
+    [father dismissModalViewControllerAnimated:YES];
+    
 }
 
 #pragma mark -
