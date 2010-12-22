@@ -27,17 +27,16 @@
     application.statusBarStyle = UIStatusBarStyleBlackOpaque;
     
     // Add the navigation controller's view to the window and display.
-    
-    
-    
-    [window addSubview:spliView.view];    
+    [window addSubview:spliView.view];
     [window makeKeyAndVisible];
 
 
     window.backgroundColor = [UIColor blackColor];
 
-    [spliView toggleMasterView:nil];
-
+    //[spliView toggleMasterView:nil];    
+    [spliView performSelector:@selector(setHidesMasterViewInPortrait:) withObject:[NSNumber numberWithBool:NO]];
+    
+    
     self.pullToRefreshQueue = [[[NSOperationQueue alloc] init] autorelease];
     [self.pullToRefreshQueue setMaxConcurrentOperationCount:1];    
 

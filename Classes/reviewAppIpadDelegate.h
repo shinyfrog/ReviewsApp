@@ -14,7 +14,8 @@
 
 @interface reviewAppIpadDelegate : reviewAppAppDelegate <UIApplicationDelegate> {
     
-    IBOutlet MGSplitViewController* spliView;
+    //IBOutlet MGSplitViewController* spliView;
+    IBOutlet UISplitViewController* spliView;
     IBOutlet UINavigationController* leftNav;
     IBOutlet UINavigationController* rightNav;    
     IBOutlet ReviewsControllerPad* reviewsController;
@@ -23,7 +24,7 @@
     
 }
 
-@property (nonatomic, retain) IBOutlet MGSplitViewController* spliView;
+@property (nonatomic, retain) IBOutlet UISplitViewController* spliView;
 @property (nonatomic, retain) IBOutlet UINavigationController* leftNav;
 @property (nonatomic, retain) IBOutlet UINavigationController* rightNav;
 @property (nonatomic, retain) IBOutlet ReviewsControllerPad* reviewsController;
