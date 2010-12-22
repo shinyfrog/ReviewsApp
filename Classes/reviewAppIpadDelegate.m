@@ -33,10 +33,6 @@
 
     window.backgroundColor = [UIColor blackColor];
 
-    //[spliView toggleMasterView:nil];    
-    [spliView performSelector:@selector(setHidesMasterViewInPortrait:) withObject:[NSNumber numberWithBool:NO]];
-    
-    
     self.pullToRefreshQueue = [[[NSOperationQueue alloc] init] autorelease];
     [self.pullToRefreshQueue setMaxConcurrentOperationCount:1];    
 
@@ -47,7 +43,7 @@
     [self.leftNav pushViewController:root animated:NO];
     
     [self.leftNav.view addSubview:tableShadow];
-    tableShadow.frame = CGRectMake(0, 44, 320, 5);
+    tableShadow.frame = CGRectMake(0, 44, 320, 5);    
     
     return YES;
 }

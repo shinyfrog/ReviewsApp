@@ -55,7 +55,7 @@
         reviewAppIpadDelegate* app = [[UIApplication sharedApplication] delegate];
         SearchAppViewControllerPad* addAppView = [[[SearchAppViewControllerPad alloc] initWithNibName:@"SearchAppViewControllerPad" bundle:nil father:self] autorelease];
         [app.rightNav pushViewController:addAppView animated:NO];
-    }
+    } 
     
     [super viewDidLoad];
     
@@ -70,6 +70,9 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
     self.navigationItem.rightBarButtonItem = addButton;
     [addButton release];
+    
+    reviewAppIpadDelegate* app = [[UIApplication sharedApplication] delegate];
+    [app.spliView performSelector:@selector(setHidesMasterViewInPortrait:) withObject:[NSNumber numberWithBool:NO]];    
 }
 
 
