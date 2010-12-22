@@ -16,15 +16,17 @@
 @implementation ReviewsManager
 
 + (void) getReviewsForAppStore:(AppStore*)as {
-    	
+    
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    
     NSArray *allreviews = [as.reviews allObjects];
     
-    NSMutableDictionary *reviewIdDictionary = [NSMutableDictionary dictionary];
+    NSMutableDictionary *reviewIdDictionary = [NSMutableDictionary dictionaryWithCapacity:[allreviews count]];
     for (Review* r in allreviews) { [reviewIdDictionary setObject:r forKey:r.reviewId]; }
-        
+
     NSString *sUrl = [NSString stringWithFormat:@"http://ax.phobos.apple.com.edgesuite.net/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=2&type=Purple+Software"
                       , as.app.appId];
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:sUrl]];
+    ASIHTTPRequest *request = [ASIHTTPRequest  requestWithURL:[NSURL URLWithString:sUrl]];
     [ASIHTTPRequest setShouldUpdateNetworkActivityIndicator:NO];
     [request addRequestHeader:@"X-Apple-Store-Front" value:[NSString stringWithFormat:@"%@-1", as.store.storeID]]; //@"143441"
     [request addRequestHeader:@"User-Agent" value:@"iTunes/4.2 (Macintosh; U; PPC Mac OS X 10.2)"];
@@ -32,8 +34,9 @@
 
     NSData* stringData = [request responseData];
     NSString* string = [[[NSString alloc] initWithData:stringData encoding:NSUTF8StringEncoding] autorelease];
-    
+
 	CXMLDocument *rssParser = [[[CXMLDocument alloc] initWithXMLString:string options:0 error:nil] autorelease];
+    
 	NSDictionary *mappings = [NSDictionary dictionaryWithObject:@"http://www.apple.com/itms/" forKey:@"t"];
 	NSArray *resultNodes = NULL;
 	resultNodes = [rssParser nodesForXPath:@"/t:Document/t:View/t:ScrollView/t:VBoxView/t:View/t:MatrixView/t:VBoxView" namespaceMappings:mappings error:nil];	
@@ -43,15 +46,22 @@
     if ([resultNodes count] != 0) {    
         reviews = [[resultNodes objectAtIndex:0] nodesForXPath:@"t:VBoxView/t:VBoxView" namespaceMappings:mappings error:nil];
         
-        NSString *title =@"", *body = @"", *user = @"", *rating = @"", *date = @"", *version = @"";
+        NSString *title = @""; 
+        NSString *body = @""; 
+        NSString *user = @"";
+        NSString *rating = @"";
+        NSString *date = @"";
+        NSString *version = @"";
+        
         int storeOrder = 0;
         
         for (CXMLElement *elem in reviews) {
-            title = [[[elem nodesForXPath:@"t:HBoxView/t:TextView/t:SetFontStyle/t:b" namespaceMappings:mappings error:nil] objectAtIndex:0] stringValue];
+            title =  [[[elem nodesForXPath:@"t:HBoxView/t:TextView/t:SetFontStyle/t:b" namespaceMappings:mappings error:nil] objectAtIndex:0] stringValue];
             body = [[[elem nodesForXPath:@"t:TextView/t:SetFontStyle" namespaceMappings:mappings error:nil] objectAtIndex:0] stringValue];
             rating = [[[[elem nodesForXPath:@"t:HBoxView/t:HBoxView/t:HBoxView" namespaceMappings:mappings error:nil] objectAtIndex:0] attributeForName:@"alt"] stringValue];
             
             NSArray *userBlock = [elem nodesForXPath:@"t:HBoxView/t:TextView/t:SetFontStyle/t:GotoURL/t:b" namespaceMappings:mappings error:nil];
+
             if ([userBlock count] > 0) {
                 user = [[[userBlock objectAtIndex:0] stringValue] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             } else {
@@ -83,7 +93,9 @@
             storeOrder ++;
 
             SFLog(@"%@, %@, %@, %@, %@, %@", title, body, user, rating, date, version);
-        }    
+        }
+    
+        
     }
     
 	
@@ -118,7 +130,7 @@
             NSArray *hbox = [[test objectAtIndex:1] nodesForXPath:@"t:VBoxView/t:HBoxView" namespaceMappings:mappings error:nil];
             NSArray *vb = [[hbox objectAtIndex:0] nodesForXPath:@"t:VBoxView" namespaceMappings:mappings error:nil];
             NSArray *hb = [[vb objectAtIndex:2] nodesForXPath:@"t:HBoxView" namespaceMappings:mappings error:nil];
-            NSString *ratingStore = [[[hb objectAtIndex:0] attributeForName:@"alt"] stringValue];
+            NSString *ratingStore = [[NSString alloc] initWithString:[[[hb objectAtIndex:0] attributeForName:@"alt"] stringValue]];
             SFLog(@"Store Rating : %@", ratingStore);
 
             float storeStars = [[ratingStore substringToIndex:1] floatValue];
@@ -139,8 +151,8 @@
         [NSException raise:@"Application Id Not Valid" format:@"Application Id Not Valid"];
     }
     
-    SFLog(@"Stop");
-    
+    SFLog(@"Stop");    
+    [pool release];    
 }
 
 + (void) addReviewWithTitle:(NSString*)title body:(NSString*)body user:(NSString*)user rating:(NSString*)rating 
@@ -163,7 +175,6 @@
     ReviewsManager* manager = [[[ReviewsManager alloc] init] autorelease];
     
     [manager performSelectorOnMainThread:@selector(addReviewThreadSafe:) withObject:dataDict waitUntilDone:YES];
-    
 
 }
 
@@ -200,7 +211,7 @@
 
     rev.storeOrder = storeOrder;
     
-    [[as reviewsSet] addObject:rev];    
+    [[as reviewsSet] addObject:rev]; 
     
 }
 
@@ -247,7 +258,6 @@
     for (AppStore* as in newApp.stores) {
         [ReviewsManager getReviewsForAppStore:as];
     }
-	
     
     [app.managedObjectContext performSelectorOnMainThread:@selector(save:) 
                                                withObject:nil 
@@ -259,8 +269,13 @@
 
 + (void) saveImageWithUrl:(NSString*)imageURL inApp:(App*)app {
 
+    if (app.image != nil && [app.image length] != 0) {
+        return;
+    }
+    
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:imageURL]];
     [request startSynchronous];
+    
     NSData* imageData = [request responseData];
     
     if (imageData == nil) { return; }

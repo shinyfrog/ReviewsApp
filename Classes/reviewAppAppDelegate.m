@@ -99,12 +99,16 @@
 
 - (void)saveContext {
     
+    if ([pullToRefreshQueue.operations count] == 0) {
+        return;
+    }
+    
     NSError *error = nil;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
             SFLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
-        } 
+        }
     }
 }    
 
@@ -122,6 +126,7 @@
     if (coordinator != nil) {
         managedObjectContext = [[NSManagedObjectContext alloc] init];
         [managedObjectContext setPersistentStoreCoordinator: coordinator];
+        [managedObjectContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];        
     }
     return managedObjectContext;
 }
@@ -132,7 +137,7 @@
     if (managedObjectModel != nil) { return managedObjectModel; }
 
     managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];
-
+    
     return managedObjectModel;
 }
 

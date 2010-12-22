@@ -143,8 +143,9 @@
         
     } else {
 
-        [fetchRequest setSortDescriptors:sortDescriptors];        
-        
+        [fetchRequest setSortDescriptors:sortDescriptors];
+        [fetchRequest setFetchLimit:1000];
+
     }
 
     
