@@ -11,6 +11,6 @@
 
 @implementation ReviewCellPad
 
-@synthesize reviewTitle, reviewComment;
+@synthesize reviewTitle, reviewComment, reviewCommentLabel;
 
 @end

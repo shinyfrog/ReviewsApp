@@ -12,11 +12,13 @@
 @interface ReviewCellPad : UITableViewCell {
 
     IBOutlet UILabel* reviewTitle;    
-    IBOutlet UITextView* reviewComment;        
+    IBOutlet UITextView* reviewComment;    
+    IBOutlet UILabel *reviewCommentLabel;
     
 }
 
 @property (nonatomic, retain) IBOutlet UILabel* reviewTitle;
 @property (nonatomic, retain) IBOutlet UITextView* reviewComment;
+@property (nonatomic, retain) IBOutlet UILabel *reviewCommentLabel;
 
 @end

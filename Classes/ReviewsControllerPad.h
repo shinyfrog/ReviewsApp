@@ -10,18 +10,19 @@
 #import "PullToRefreshTableViewController.h"
 #import "models.h"
 
-@interface ReviewsControllerPad : PullToRefreshTableViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate> {
+@interface ReviewsControllerPad : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate> {
 
 @private
     NSFetchedResultsController *fetchedResultsController_;
-
+	IBOutlet UITableView *tableView;
     AppStore* appStore;
     App* app;
     
     NSIndexPath* cellToExpand;
+	CGFloat heightToAdjust;
     
 }
-
+@property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 - (void)loadAllReviews;

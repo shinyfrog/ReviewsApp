@@ -13,7 +13,7 @@
 
 @implementation ReviewsControllerPad
 
-@synthesize fetchedResultsController=fetchedResultsController_;
+@synthesize fetchedResultsController=fetchedResultsController_, tableView;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return YES;
@@ -31,7 +31,9 @@
 }
 
 - (void) viewDidLoad {
-
+	UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ipad_tableBg"]];
+	bgImageView.contentMode = UIViewContentModeTopLeft;
+	tableView.backgroundView = bgImageView;
     self.navigationController.navigationBarHidden = YES;
     cellToExpand = nil;
     
@@ -41,6 +43,9 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self willRotateToInterfaceOrientation:[UIDevice currentDevice].orientation duration:0];
 }
+
+#pragma mark -
+#pragma mark Table view data source
 
 
 - (NSInteger)tableView:(UITableView *)_tableView numberOfRowsInSection:(NSInteger)section { 
@@ -55,9 +60,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)_tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (indexPath == cellToExpand) {
-        return 200;
+
+        return 131 + heightToAdjust;
     }
     
 	return 131;
@@ -74,7 +79,7 @@
     Review *review = (Review *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.reviewTitle.text = review.title;
-    cell.reviewComment.text = review.message;
+    cell.reviewCommentLabel.text = review.message;
     
     return cell;
 }
@@ -83,12 +88,22 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //[_tableView deselectRowAtIndexPath:indexPath animated:YES];
+	cellToExpand = [indexPath copy];
     
-    cellToExpand = [indexPath copy];
-    [_tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:cellToExpand] withRowAnimation:UITableViewRowAnimationNone];
-    
+	ReviewCellPad *cell = (ReviewCellPad *)[tableView cellForRowAtIndexPath:indexPath];
+	NSLog(@"cell %@", cell.selectedBackgroundView);
+	CGSize constrainSize = CGSizeMake(cell.reviewCommentLabel.frame.size.width, 2000);
+	CGSize textSize = [cell.reviewCommentLabel.text sizeWithFont:cell.reviewCommentLabel.font constrainedToSize:constrainSize lineBreakMode:UILineBreakModeTailTruncation];
+	heightToAdjust = textSize.height - cell.reviewCommentLabel.frame.size.height;
+	if (heightToAdjust < 0) {
+		heightToAdjust = 0;
+	}
+		
+	[tableView beginUpdates];
+	[tableView endUpdates];
+
 }
+
 
 #pragma mark -
 #pragma mark Fetched results controller
@@ -179,5 +194,6 @@
     }    
     
 }
+
 
 @end
