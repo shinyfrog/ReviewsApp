@@ -34,7 +34,14 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{	
-	
+
+    if (![refreshHeaderView isKindOfClass:[EGORefreshTableHeaderView class]]) {
+		refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.view.bounds.size.height, 320.0f, self.view.bounds.size.height)];
+		[self.view addSubview:refreshHeaderView];
+		((UITableView*)self.view).showsVerticalScrollIndicator = YES;
+		[refreshHeaderView release];
+    }
+
 	if (scrollView.isDragging) {
 		if (refreshHeaderView.state == EGOOPullRefreshPulling && scrollView.contentOffset.y > -65.0f && scrollView.contentOffset.y < 0.0f && !_reloading) {
 			[refreshHeaderView setState:EGOOPullRefreshNormal];

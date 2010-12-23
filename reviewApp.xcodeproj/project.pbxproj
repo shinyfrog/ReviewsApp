@@ -635,6 +635,8 @@
 		9FB6F677127EC62900B824DB /* PullRefreshOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB6F676127EC62900B824DB /* PullRefreshOperation.m */; };
 		9FB6F6C9127ECE2100B824DB /* TraslationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB6F6C8127ECE2100B824DB /* TraslationManager.m */; };
 		9FB6F9BD127F2FEE00B824DB /* PullToRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB6F9BC127F2FEE00B824DB /* PullToRefreshViewController.m */; };
+		9FB8391112C357B300899F04 /* TOSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB8391012C357B300899F04 /* TOSplitViewController.m */; };
+		9FB8392912C358CB00899F04 /* SplitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB8392812C358CB00899F04 /* SplitView.xib */; };
 		9FDF1D31129AE4E50010F921 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDF1D30129AE4E50010F921 /* App.m */; };
 		9FDF1D33129AE4E60010F921 /* AppStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDF1D32129AE4E50010F921 /* AppStore.m */; };
 		9FDF1D35129AE4E60010F921 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDF1D34129AE4E60010F921 /* Review.m */; };
@@ -1375,6 +1377,9 @@
 		9FB6F6C8127ECE2100B824DB /* TraslationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraslationManager.m; sourceTree = "<group>"; };
 		9FB6F9BB127F2FEE00B824DB /* PullToRefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullToRefreshViewController.h; path = Classes/PullToRefreshViewController.h; sourceTree = "<group>"; };
 		9FB6F9BC127F2FEE00B824DB /* PullToRefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullToRefreshViewController.m; path = Classes/PullToRefreshViewController.m; sourceTree = "<group>"; };
+		9FB8390F12C357B300899F04 /* TOSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOSplitViewController.h; path = MGSplitView/TOSplitViewController.h; sourceTree = "<group>"; };
+		9FB8391012C357B300899F04 /* TOSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TOSplitViewController.m; path = MGSplitView/TOSplitViewController.m; sourceTree = "<group>"; };
+		9FB8392812C358CB00899F04 /* SplitView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SplitView.xib; path = Resources/SplitView.xib; sourceTree = "<group>"; };
 		9FDF1D30129AE4E50010F921 /* App.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = App.m; sourceTree = "<group>"; };
 		9FDF1D32129AE4E50010F921 /* AppStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppStore.m; sourceTree = "<group>"; };
 		9FDF1D34129AE4E60010F921 /* Review.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
@@ -1753,6 +1758,7 @@
 			children = (
 				0CAE1AE112C1030400FAE235 /* ipad */,
 				9FE050BB12BA871000D83E00 /* ReviewsControllerPad.xib */,
+				9FB8392812C358CB00899F04 /* SplitView.xib */,
 				9FE050BC12BA871000D83E00 /* RootViewControllerPad.xib */,
 				9FE050BD12BA871000D83E00 /* SearchAppViewControllerPad.xib */,
 				9FE050BE12BA871000D83E00 /* StoreSelectionControllerPad.xib */,
@@ -2488,6 +2494,8 @@
 				9FE04F0812BA549A00D83E00 /* MGSplitDividerView.m */,
 				9FE04F0912BA549A00D83E00 /* MGSplitViewController.h */,
 				9FE04F0A12BA549A00D83E00 /* MGSplitViewController.m */,
+				9FB8390F12C357B300899F04 /* TOSplitViewController.h */,
+				9FB8391012C357B300899F04 /* TOSplitViewController.m */,
 			);
 			name = MGSplitView;
 			sourceTree = "<group>";
@@ -3132,6 +3140,7 @@
 				0CAE1AE412C1030C00FAE235 /* ipad_tableBg.png in Resources */,
 				0CCFB58012C2375E0040A643 /* ipad_cellSeparator.png in Resources */,
 				0CCFB5BE12C241070040A643 /* ipad_tableBg_selected.png in Resources */,
+				9FB8392912C358CB00899F04 /* SplitView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3215,6 +3224,7 @@
 				9FE04F0D12BA549A00D83E00 /* MGSplitViewController.m in Sources */,
 				9FE050C512BA873500D83E00 /* PullToRefreshTableViewController.m in Sources */,
 				9F3B6B0D12BF5617003E9F52 /* ReviewCellPad.m in Sources */,
+				9FB8391112C357B300899F04 /* TOSplitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

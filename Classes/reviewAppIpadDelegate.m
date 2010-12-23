@@ -13,7 +13,7 @@
 
 @implementation reviewAppIpadDelegate
 
-@synthesize spliView, leftNav, rightNav, reviewsController;
+@synthesize splitView, leftNav, rightNav, reviewsController;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -25,11 +25,12 @@
     // Override point for customization after application launch.
     
     application.statusBarStyle = UIStatusBarStyleBlackOpaque;
+
+    splitView = [[TOSplitViewController alloc] initWithNibName:@"SplitView" bundle:nil panes:[NSArray  arrayWithObjects:leftNav,rightNav, nil]];        
     
     // Add the navigation controller's view to the window and display.
-    [window addSubview:spliView.view];
+    [window addSubview:splitView.view];
     [window makeKeyAndVisible];
-
 
     window.backgroundColor = [UIColor blackColor];
 
@@ -38,13 +39,13 @@
 
     self.reviewsController = [[[ReviewsControllerPad alloc] initWithNibName:@"ReviewsControllerPad" bundle:nil] autorelease];
     [self.rightNav pushViewController:reviewsController animated:NO];
-    
+
     RootViewControllerPad* root = [[[RootViewControllerPad alloc] initWithNibName:@"RootViewControllerPad" bundle:nil] autorelease];
     [self.leftNav pushViewController:root animated:NO];
-    
+
     [self.leftNav.view addSubview:tableShadow];
-    tableShadow.frame = CGRectMake(0, 44, 320, 5);    
-    
+    tableShadow.frame = CGRectMake(0, 44, 320, 5);
+
     return YES;
 }
 
@@ -63,7 +64,7 @@
 }
 
 - (void) endSyncMainThread {
-    UINavigationController* nav = (UINavigationController*)[self.spliView.viewControllers objectAtIndex:0];
+    UINavigationController* nav = (UINavigationController*)[self.splitView.viewControllers objectAtIndex:0];
     RootViewControllerPad* aViewController = (RootViewControllerPad*)nav.topViewController;
     [aViewController viewWillAppear:YES];    
 }
