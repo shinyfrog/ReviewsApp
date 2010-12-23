@@ -80,7 +80,14 @@
     
     cell.reviewTitle.text = review.title;
     cell.reviewCommentLabel.text = review.message;
-    
+	
+	cell.applicationIconImageView.image = [UIImage imageWithContentsOfFile:review.appstore.app.image];
+
+	cell.coutryLabel.text = [review.appstore.store.countryCode uppercaseString];
+    cell.countryFlagImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@30.png", review.appstore.store.countryCode]];
+
+	
+    [cell setStars:review.stars];
     return cell;
 }
 
@@ -91,7 +98,7 @@
 	cellToExpand = [indexPath copy];
     
 	ReviewCellPad *cell = (ReviewCellPad *)[tableView cellForRowAtIndexPath:indexPath];
-	NSLog(@"cell %@", cell.selectedBackgroundView);
+
 	CGSize constrainSize = CGSizeMake(cell.reviewCommentLabel.frame.size.width, 2000);
 	CGSize textSize = [cell.reviewCommentLabel.text sizeWithFont:cell.reviewCommentLabel.font constrainedToSize:constrainSize lineBreakMode:UILineBreakModeTailTruncation];
 	heightToAdjust = textSize.height - cell.reviewCommentLabel.frame.size.height;
