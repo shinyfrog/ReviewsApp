@@ -78,11 +78,8 @@
 
 - (void)insertNewObject {
     SearchAppViewController* addAppView = [[[SearchAppViewController alloc] initWithNibName:@"SearchAppViewController" bundle:nil father:self] autorelease];
-
     UINavigationController *controller = [[[UINavigationController alloc] initWithRootViewController:addAppView] autorelease];
     [[self navigationController] presentModalViewController:controller animated:YES];
-    
-    //[self presentModalViewController:addAppView animated:YES];
 }
 
 
@@ -90,7 +87,6 @@
 #pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)_tableView { return 1; }
-
 
 - (NSInteger)tableView:(UITableView *)_tableView numberOfRowsInSection:(NSInteger)section {
 
@@ -103,7 +99,6 @@
     }
     return count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 

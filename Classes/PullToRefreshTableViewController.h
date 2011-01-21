@@ -21,6 +21,7 @@
 
 @property(assign,getter=isReloading) BOOL reloading;
 
+- (void)setupRefreshHeaderView;
 - (void)reloadTableViewDataSource;
 - (void)doneLoadingTableViewData;
 - (void)dataSourceDidFinishLoadingNewData;

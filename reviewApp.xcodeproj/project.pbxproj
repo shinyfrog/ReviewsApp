@@ -34,6 +34,8 @@
 		9F0B134612B904CB00994085 /* StoreSelectionControllerPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B134512B904CB00994085 /* StoreSelectionControllerPad.m */; };
 		9F0B143412B9225200994085 /* AppDetailsControllerPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B143312B9225200994085 /* AppDetailsControllerPad.m */; };
 		9F0B149912BA09ED00994085 /* ReviewsControllerPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B149812BA09ED00994085 /* ReviewsControllerPad.m */; };
+		9F128B3512E9D4B100F79F8D /* startImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F128B3312E9D4B100F79F8D /* startImage.png */; };
+		9F128B3612E9D4B100F79F8D /* startImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F128B3412E9D4B100F79F8D /* startImage@2x.png */; };
 		9F25B1FB126EDC490012E5CF /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F25B1E4126EDC490012E5CF /* CXMLDocument_CreationExtensions.m */; };
 		9F25B1FC126EDC490012E5CF /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F25B1E6126EDC490012E5CF /* CXMLNode_CreationExtensions.m */; };
 		9F25B1FD126EDC490012E5CF /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F25B1E8126EDC490012E5CF /* CXMLDocument.m */; };
@@ -726,6 +728,8 @@
 		9F0B143312B9225200994085 /* AppDetailsControllerPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDetailsControllerPad.m; sourceTree = "<group>"; };
 		9F0B149712BA09ED00994085 /* ReviewsControllerPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewsControllerPad.h; sourceTree = "<group>"; };
 		9F0B149812BA09ED00994085 /* ReviewsControllerPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewsControllerPad.m; sourceTree = "<group>"; };
+		9F128B3312E9D4B100F79F8D /* startImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = startImage.png; path = Resources/startImage.png; sourceTree = "<group>"; };
+		9F128B3412E9D4B100F79F8D /* startImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "startImage@2x.png"; path = "Resources/startImage@2x.png"; sourceTree = "<group>"; };
 		9F25B1E3126EDC490012E5CF /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
 		9F25B1E4126EDC490012E5CF /* CXMLDocument_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_CreationExtensions.m; sourceTree = "<group>"; };
 		9F25B1E5126EDC490012E5CF /* CXMLNode_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_CreationExtensions.h; sourceTree = "<group>"; };
@@ -1530,6 +1534,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9F128B3312E9D4B100F79F8D /* startImage.png */,
+				9F128B3412E9D4B100F79F8D /* startImage@2x.png */,
 				0CC69092128459E800F4142C /* icon.png */,
 				0CDEF92C128402DB00C5D169 /* icon@2x.png */,
 				9F701839127989F300B51AEB /* cells */,
@@ -3141,6 +3147,8 @@
 				0CCFB58012C2375E0040A643 /* ipad_cellSeparator.png in Resources */,
 				0CCFB5BE12C241070040A643 /* ipad_tableBg_selected.png in Resources */,
 				9FB8392912C358CB00899F04 /* SplitView.xib in Resources */,
+				9F128B3512E9D4B100F79F8D /* startImage.png in Resources */,
+				9F128B3612E9D4B100F79F8D /* startImage@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3235,7 +3243,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Matteo Rattotti (XEU3HP3BWR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Danilo Bonardi (Y2N7M4V839)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -3247,7 +3255,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = AppStronomy;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7184B281-3017-4BEA-BAF6-FD8BF268FE7B";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -3255,7 +3263,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shiny Frog";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Danilo Bonardi (Y2N7M4V839)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = reviewApp_Prefix.pch;
@@ -3263,9 +3271,9 @@
 				INFOPLIST_FILE = "AppStronomy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = AppStronomy;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D944068D-7136-4A0E-B0FD-883A3FD4314B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7184B281-3017-4BEA-BAF6-FD8BF268FE7B";
 				SDKROOT = iphoneos4.2;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -3303,6 +3311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Danilo Bonardi (Y2N7M4V839)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = reviewApp_Prefix.pch;
@@ -3310,7 +3319,8 @@
 				INFOPLIST_FILE = "AppStronomy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = AppStronomy;
-				TARGETED_DEVICE_FAMILY = 2;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7184B281-3017-4BEA-BAF6-FD8BF268FE7B";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = distribution;

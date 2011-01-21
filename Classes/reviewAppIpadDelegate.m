@@ -26,13 +26,13 @@
     
     application.statusBarStyle = UIStatusBarStyleBlackOpaque;
 
-    splitView = [[TOSplitViewController alloc] initWithNibName:@"SplitView" bundle:nil panes:[NSArray  arrayWithObjects:leftNav,rightNav, nil]];        
+    //splitView = [[TOSplitViewController alloc] initWithNibName:@"SplitView" bundle:nil panes:[NSArray  arrayWithObjects:leftNav,rightNav, nil]];        
     
     // Add the navigation controller's view to the window and display.
-    [window addSubview:splitView.view];
-    [window makeKeyAndVisible];
+    [self.window addSubview:splitView.view];
+    [self.window makeKeyAndVisible];
 
-    window.backgroundColor = [UIColor blackColor];
+    self.window.backgroundColor = [UIColor blackColor];
 
     self.pullToRefreshQueue = [[[NSOperationQueue alloc] init] autorelease];
     [self.pullToRefreshQueue setMaxConcurrentOperationCount:1];    
@@ -50,17 +50,12 @@
 }
 
 - (void)syncTask {
-    
     @try {
-        
         [ReviewsManager syncAllApps];
-        
         [self performSelectorOnMainThread:@selector(endSyncMainThread) withObject:nil waitUntilDone:YES];
-
     } @catch (NSException * e) {
         SFLog(@"%@", [e description]);
     }
-
 }
 
 - (void) endSyncMainThread {

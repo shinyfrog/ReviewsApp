@@ -16,15 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setupRefreshHeaderView];
+}
+
+- (void) setupRefreshHeaderView {
 	if (refreshHeaderView == nil) {
-		refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.view.bounds.size.height, 320.0f, self.view.bounds.size.height)];
-		[self.view addSubview:refreshHeaderView];
-		((UITableView*)self.view).showsVerticalScrollIndicator = YES;
+        UITableView* table = (UITableView*)self.view;
+		refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - table.bounds.size.height, 320.0f, table.bounds.size.height)];
+		[table addSubview:refreshHeaderView];
+		table.showsVerticalScrollIndicator = YES;
 		[refreshHeaderView release];
 	}
 }
-
 
 - (void)reloadTableViewDataSource {
 }
@@ -35,12 +38,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{	
 
-    if (![refreshHeaderView isKindOfClass:[EGORefreshTableHeaderView class]]) {
-		refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.view.bounds.size.height, 320.0f, self.view.bounds.size.height)];
-		[self.view addSubview:refreshHeaderView];
-		((UITableView*)self.view).showsVerticalScrollIndicator = YES;
-		[refreshHeaderView release];
-    }
+    [self setupRefreshHeaderView];
 
 	if (scrollView.isDragging) {
 		if (refreshHeaderView.state == EGOOPullRefreshPulling && scrollView.contentOffset.y > -65.0f && scrollView.contentOffset.y < 0.0f && !_reloading) {
@@ -53,6 +51,8 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
 	
+    [self setupRefreshHeaderView];
+    
 	if (scrollView.contentOffset.y <= - 65.0f && !_reloading) {
         _reloading = YES;
         [self reloadTableViewDataSource];
@@ -75,6 +75,24 @@
 	
 	[refreshHeaderView setState:EGOOPullRefreshNormal];
 	[refreshHeaderView setCurrentDate];  //  should check if data reload was successful 
+}
+
+- (void)viewDidUnload {
+	[super viewDidUnload];
+	refreshHeaderView = nil;
+	SFLog(@"view unload");
+}
+
+- (void)didReceiveMemoryWarning {
+	SFLog(@"memory warning");
+	refreshHeaderView = nil;
+	[super didReceiveMemoryWarning];
+}
+
+- (void) dealloc {
+	SFLog(@"dealloc"); 
+	refreshHeaderView = nil;
+	[super dealloc];
 }
 
 @end

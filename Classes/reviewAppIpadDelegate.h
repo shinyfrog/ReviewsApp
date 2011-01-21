@@ -14,20 +14,16 @@
 #import "TOSplitViewController.h"
 
 @interface reviewAppIpadDelegate : reviewAppAppDelegate <UIApplicationDelegate> {
-    
-    //IBOutlet MGSplitViewController* spliView;
-    //IBOutlet UISplitViewController* spliView;
-    IBOutlet TOSplitViewController* splitView;
-    
+
+    IBOutlet UISplitViewController* spliView;
     IBOutlet UINavigationController* leftNav;
-    IBOutlet UINavigationController* rightNav;    
+    IBOutlet UINavigationController* rightNav;
     IBOutlet ReviewsControllerPad* reviewsController;
     IBOutlet UIImageView* tableShadow;
-    
-    
+
 }
 
-@property (nonatomic, retain) IBOutlet TOSplitViewController* splitView;
+@property (nonatomic, retain) IBOutlet UISplitViewController* splitView;
 @property (nonatomic, retain) IBOutlet UINavigationController* leftNav;
 @property (nonatomic, retain) IBOutlet UINavigationController* rightNav;
 @property (nonatomic, retain) IBOutlet ReviewsControllerPad* reviewsController;

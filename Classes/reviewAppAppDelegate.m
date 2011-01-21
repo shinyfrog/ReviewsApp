@@ -12,6 +12,8 @@
 #import "RootViewController.h"
 #import "PullRefreshOperation.h"
 
+#define ONE_DAY 86400
+
 @implementation reviewAppAppDelegate
 
 @synthesize window, navigationController, managedObjectContext, managedObjectModel, persistentStoreCoordinator, pullToRefreshQueue;
@@ -57,19 +59,18 @@
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    
+
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
     NSDate* lastSync = [ud objectForKey:@"lastSync"];
     NSDate *now      = [NSDate date];
     
-    if (lastSync == nil || [now timeIntervalSinceDate:lastSync] >= 3600) {
+    if (lastSync == nil || [now timeIntervalSinceDate:lastSync] >= ONE_DAY) {
 
         PullRefreshOperation* pro = [[[PullRefreshOperation alloc] init] autorelease];
         pro.father = self;
         [self.pullToRefreshQueue addOperation:pro];
 
     }
-    
 
 }
 
