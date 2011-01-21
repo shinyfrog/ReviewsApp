@@ -12,6 +12,8 @@
 #import "RootViewController.h"
 #import "PullRefreshOperation.h"
 
+#define ONE_DAY 86400
+
 @implementation reviewAppAppDelegate
 
 @synthesize window, navigationController, managedObjectContext, managedObjectModel, persistentStoreCoordinator, pullToRefreshQueue;
@@ -57,19 +59,18 @@
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    
+
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
     NSDate* lastSync = [ud objectForKey:@"lastSync"];
     NSDate *now      = [NSDate date];
     
-    if (lastSync == nil || [now timeIntervalSinceDate:lastSync] >= 3600) {
+    if (lastSync == nil || [now timeIntervalSinceDate:lastSync] >= ONE_DAY) {
 
         PullRefreshOperation* pro = [[[PullRefreshOperation alloc] init] autorelease];
         pro.father = self;
         [self.pullToRefreshQueue addOperation:pro];
 
     }
-    
 
 }
 
@@ -78,14 +79,18 @@
     @try {
 
         [ReviewsManager syncAllApps];
-        RootViewController* aviewController = (RootViewController*)self.navigationController.topViewController;
-        aviewController.fetchedResultsController = nil;
-        [aviewController.tableView reloadData];
+        [self performSelectorOnMainThread:@selector(endSyncMainThread) withObject:nil waitUntilDone:YES];
 
     } @catch (NSException * e) {
         SFLog(@"%@", [e description]);
     }
 
+}
+
+- (void) endSyncMainThread {
+    RootViewController* aviewController = (RootViewController*)self.navigationController.topViewController;
+    aviewController.fetchedResultsController = nil;
+    [aviewController.tableView reloadData];   
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -95,12 +100,16 @@
 
 - (void)saveContext {
     
+    if ([pullToRefreshQueue.operations count] == 0) {
+        return;
+    }
+    
     NSError *error = nil;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
             SFLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
-        } 
+        }
     }
 }    
 
@@ -118,6 +127,7 @@
     if (coordinator != nil) {
         managedObjectContext = [[NSManagedObjectContext alloc] init];
         [managedObjectContext setPersistentStoreCoordinator: coordinator];
+        [managedObjectContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];        
     }
     return managedObjectContext;
 }
@@ -128,7 +138,7 @@
     if (managedObjectModel != nil) { return managedObjectModel; }
 
     managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];
-
+    
     return managedObjectModel;
 }
 

@@ -1,29 +1,31 @@
 //
-//  RootViewController.m
+//  RootViewControllerPad.m
 //  reviewApp
 //
-//  Created by Danilo Bonardi on 20/10/10.
+//  Created by Danilo Bonardi on 14/12/10.
 //  Copyright 2010 Shiny Frog. All rights reserved.
 //
 
-#import "RootViewController.h"
-#import "SearchAppViewController.h"
-#import "reviewAppAppDelegate.h"
+#import "RootViewControllerPad.h"
+#import "SearchAppViewControllerPad.h"
+#import "reviewAppIpadDelegate.h"
 #import "models.h"
-#import "AppDetailsController.h"
+#import "AppDetailsControllerPad.h"
 #import "UINavigationBar+BackgroundImage.h"
 #import "ApplicationCell.h"
 #import "EGORefreshTableHeaderView.h"
 #import "ReviewsManager.h"
 #import "PullRefreshOperation.h"
+#import "ReviewsControllerPad.h"
 
-@interface RootViewController (Private)
+@interface RootViewControllerPad (Private)
 
 - (void)dataSourceDidFinishLoadingNewData;
 
 @end
 
-@implementation RootViewController
+@implementation RootViewControllerPad
+
 
 @synthesize fetchedResultsController=fetchedResultsController_;
 
@@ -32,36 +34,42 @@
 #pragma mark View lifecycle
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
 
-	[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_back.png"] withBackgroundTint:kSCNavigationBarTintColor];
-    
     self.title = @"Applications";
     
+    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.451 green:0.518 blue:0.616 alpha:1.000]];    
+	[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_back.png"] withBackgroundTint:kSCNavigationBarTintColor];
+    
+    
 	UIImageView *tableBg = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"table_back.png"]] autorelease];
+
 	[self.tableView setBackgroundView:tableBg];
 
-    if ([self.fetchedResultsController.fetchedObjects count] == 0) {
-        SearchAppViewController* addAppView = [[[SearchAppViewController alloc] initWithNibName:@"SearchAppViewController" bundle:nil father:self] autorelease];
-        
-        UINavigationController *controller = [[[UINavigationController alloc] initWithRootViewController:addAppView] autorelease];
-        [[self navigationController] presentModalViewController:controller animated:NO];   
-    }
-
-    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButtonArrow.png"] 
+    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButtonArrow.png"]
                                                                     style:self.navigationItem.backBarButtonItem.style
                                                                    target:self.navigationItem.backBarButtonItem.target 
                                                                    action:self.navigationItem.backBarButtonItem.action] autorelease];
     self.navigationItem.backBarButtonItem = backButton;
     
+    if ([self.fetchedResultsController.fetchedObjects count] == 0) {
+        reviewAppIpadDelegate* app = [[UIApplication sharedApplication] delegate];
+        SearchAppViewControllerPad* addAppView = [[[SearchAppViewControllerPad alloc] initWithNibName:@"SearchAppViewControllerPad" bundle:nil father:self] autorelease];
+        [app.rightNav pushViewController:addAppView animated:NO];
+    } 
+    
+    [super viewDidLoad];
+    
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+	return YES;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
     //self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
     self.navigationItem.rightBarButtonItem = addButton;
-    [addButton release];
+    [addButton release];    
 }
 
 
@@ -69,17 +77,38 @@
     fetchedResultsController_ = nil;
     [self fetchedResultsController];
     [self.tableView reloadData];
+    
+    //Set the right data 
+    reviewAppIpadDelegate* app = [[UIApplication sharedApplication] delegate];
+    [app.reviewsController loadAllReviews];
+    
     [super viewWillAppear:animated];
+    
 }
-
 
 #pragma mark -
 #pragma mark Add a new object
 
 - (void)insertNewObject {
-    SearchAppViewController* addAppView = [[[SearchAppViewController alloc] initWithNibName:@"SearchAppViewController" bundle:nil father:self] autorelease];
-    UINavigationController *controller = [[[UINavigationController alloc] initWithRootViewController:addAppView] autorelease];
-    [[self navigationController] presentModalViewController:controller animated:YES];
+    
+    reviewAppIpadDelegate* app = [[UIApplication sharedApplication] delegate];
+    BOOL animated = YES;
+
+    if (![app.rightNav.visibleViewController isKindOfClass:[ReviewsControllerPad class]]) {
+        
+        if ([app.rightNav.visibleViewController isKindOfClass:[SearchAppViewControllerPad class]]) {
+            animated = NO;            
+        }
+        
+        [app.rightNav popToRootViewControllerAnimated:NO];
+        
+    }
+    
+    SearchAppViewControllerPad* addAppView = [[[SearchAppViewControllerPad alloc] initWithNibName:@"SearchAppViewControllerPad" bundle:nil father:self] autorelease];
+    
+    [app.rightNav pushViewController:addAppView animated:animated];
+    
+    //[self presentModalViewController:addAppView animated:YES];
 }
 
 
@@ -88,8 +117,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)_tableView { return 1; }
 
-- (NSInteger)tableView:(UITableView *)_tableView numberOfRowsInSection:(NSInteger)section {
 
+- (NSInteger)tableView:(UITableView *)_tableView numberOfRowsInSection:(NSInteger)section {
     NSArray *sectionInfo = [self.fetchedResultsController sections];
     
     NSUInteger count = 0;
@@ -100,16 +129,17 @@
     return count;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     static NSString *CellIdentifier = @"ApplicationCell";
-
+    
     ApplicationCell *cell = (ApplicationCell *)[_tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         UIViewController* adc = [[[UIViewController alloc] initWithNibName:@"ApplicationCell" bundle:nil] autorelease];        
         cell = (ApplicationCell *)adc.view;
     }
-
+    
     App *app = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.applicationNameLabel.text = app.name;
     cell.applicationIconImageView.image = [UIImage imageWithContentsOfFile:app.image];
@@ -117,7 +147,7 @@
     int unreadCount = 0;
     int allreviews = 0;
     int stars = 0;
-
+    
     for (AppStore* as in app.stores) {        
         for (Review* rev in as.reviews) {
             if (![rev.viewed boolValue]) { unreadCount++; }
@@ -129,7 +159,7 @@
     if (allreviews != 0) {
         [cell setStars:stars/allreviews];
     }
-
+    
     
     if (unreadCount != 0) {
         cell.badge.hidden = NO;
@@ -140,8 +170,10 @@
 	
 	cell.imageView.contentMode = UIViewContentModeTopLeft;
 
-    return cell;
+    return cell;     
+
 }
+
 
 - (CGFloat)tableView:(UITableView *)_tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (indexPath.row == [self tableView:_tableView numberOfRowsInSection:0] -1) {
@@ -151,8 +183,9 @@
 	
 }
 
+ 
 - (void)tableView:(UITableView *)_tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
         
@@ -166,7 +199,7 @@
         }
         
         [context deleteObject:app];
-
+        
         NSError *error = nil;
         
         
@@ -174,18 +207,20 @@
             SFLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
-
+        
         [_tableView beginUpdates];
         
         fetchedResultsController_ = nil;
         [self fetchedResultsController];
         [_tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
-                         withRowAnimation:UITableViewRowAnimationFade];
+                          withRowAnimation:UITableViewRowAnimationFade];
         
         [_tableView endUpdates];
+        
+        _tableView.editing = NO;
+        
     }   
 }
-
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath { 
     return YES; 
@@ -195,15 +230,14 @@
     return YES; 
 }
 
-
 #pragma mark -
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [_tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    
     App *application = [self.fetchedResultsController objectAtIndexPath:indexPath];    
-    AppDetailsController* adc = [[[AppDetailsController alloc] initWithNibName:@"AppDetailsController" bundle:nil application:application] autorelease];
+    AppDetailsControllerPad* adc = [[[AppDetailsControllerPad alloc] initWithNibName:@"AppDetailsControllerPad" bundle:nil application:application] autorelease];
     
     [self.navigationController pushViewController:adc animated:YES];
 }
@@ -219,31 +253,31 @@
 #pragma mark Fetched results controller
 
 - (NSFetchedResultsController *)fetchedResultsController {
-
+    
     if (fetchedResultsController_ != nil) { return fetchedResultsController_; }
-
+    
     NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
     reviewAppAppDelegate* app = [[UIApplication sharedApplication] delegate];
-
+    
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"App" inManagedObjectContext:app.managedObjectContext];
     [fetchRequest setEntity:entity];
-
+    
     NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"order" ascending:NO] autorelease];
     NSArray *sortDescriptors = [[[NSArray alloc] initWithObjects:sortDescriptor, nil] autorelease];
     [fetchRequest setSortDescriptors:sortDescriptors];
-
+    
     NSFetchedResultsController *aFetchedResultsController = [[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                                                  managedObjectContext:app.managedObjectContext
                                                                                                    sectionNameKeyPath:nil
                                                                                                             cacheName:nil] autorelease];
     self.fetchedResultsController = aFetchedResultsController;
-
+    
     NSError *error = nil;
     if (![fetchedResultsController_ performFetch:&error]) {
         SFLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-               
+    
     return fetchedResultsController_;
 }
 
@@ -286,7 +320,7 @@
 }
 
 - (void)viewDidUnload {
-	refreshHeaderView=nil;
+	//refreshHeaderView=nil;
 }
 
 - (void)dealloc {
@@ -294,6 +328,4 @@
     [super dealloc];
 }
 
-
 @end
-
