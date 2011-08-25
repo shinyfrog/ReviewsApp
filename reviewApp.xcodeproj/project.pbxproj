@@ -1491,6 +1491,18 @@
 			name = ipad;
 			sourceTree = "<group>";
 		};
+		0CD05F2F14068D7500369642 /* External Lib */ = {
+			isa = PBXGroup;
+			children = (
+				9FE04F0312BA549000D83E00 /* MGSplitView */,
+				9FB6F57A127EB87100B824DB /* pull to refresh */,
+				9F25B355126EF5B20012E5CF /* touchJSON */,
+				9F25B23D126EDD3A0012E5CF /* ASIHttp */,
+				9F25B1E1126EDC490012E5CF /* touchXML */,
+			);
+			name = "External Lib";
+			sourceTree = "<group>";
+		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1502,13 +1514,9 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				9FE04F0312BA549000D83E00 /* MGSplitView */,
-				9FB6F57A127EB87100B824DB /* pull to refresh */,
-				9F30F8911271DBF1001DA1A9 /* model */,
-				9F25B355126EF5B20012E5CF /* touchJSON */,
-				9F25B23D126EDD3A0012E5CF /* ASIHttp */,
-				9F25B1E1126EDC490012E5CF /* touchXML */,
 				080E96DDFE201D6D7F000001 /* Classes */,
+				9F30F8911271DBF1001DA1A9 /* Models */,
+				0CD05F2F14068D7500369642 /* External Lib */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				9F6A6D5212B7C56F009D3C05 /* Resources iPad */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -1749,14 +1757,14 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
-		9F30F8911271DBF1001DA1A9 /* model */ = {
+		9F30F8911271DBF1001DA1A9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				9FAE2BCB12706B5C000D5E48 /* DataModel.xcdatamodel */,
 				9F30F8A01271DCE5001DA1A9 /* models.h */,
 				9F0A98CC1274795A00928E4D /* DataModel */,
 			);
-			name = model;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		9F6A6D5212B7C56F009D3C05 /* Resources iPad */ = {
@@ -3311,7 +3319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Danilo Bonardi (Y2N7M4V839)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shiny Frog";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = reviewApp_Prefix.pch;
@@ -3319,7 +3327,7 @@
 				INFOPLIST_FILE = "AppStronomy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = AppStronomy;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7184B281-3017-4BEA-BAF6-FD8BF268FE7B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D944068D-7136-4A0E-B0FD-883A3FD4314B";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
